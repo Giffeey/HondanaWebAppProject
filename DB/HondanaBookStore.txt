@@ -1,0 +1,142 @@
+﻿-- DBNAME: HondanaBookStore USER: book PASS: book DBSource: java:app/HondanaBookStore --
+
+CREATE TABLE book (
+    isbn              VARCHAR(13) NOT NULL,
+    bookname          VARCHAR(100),
+    author            VARCHAR(100),
+    publisher         VARCHAR(50),
+    category          VARCHAR(50),
+    genre             VARCHAR(50),
+    numofpage         INTEGER,
+    synopsis          CLOB,
+    price             DECIMAL(6,2),
+    quantityinstock   INTEGER
+);
+
+ALTER TABLE book ADD CONSTRAINT book_pk PRIMARY KEY ( isbn );
+
+CREATE TABLE customer (
+    customerid   INTEGER NOT NULL,
+    username     VARCHAR(50),
+    password     VARCHAR(50),
+    firstname    VARCHAR(100),
+    lastname     VARCHAR(100),
+    phone        VARCHAR(10),
+    email        VARCHAR(100),
+    address      VARCHAR(250)
+);
+
+ALTER TABLE customer ADD CONSTRAINT customer_pk PRIMARY KEY ( customerid );
+
+CREATE TABLE orders (
+    orderno      INTEGER NOT NULL,
+    orderdate    DATE,
+    totalbook    INTEGER,
+    status       VARCHAR(50),
+    totalprice   DECIMAL(10,2),
+    customerid   INTEGER NOT NULL,
+    shipno       INTEGER NOT NULL,
+    paymentno    INTEGER NOT NULL
+);
+
+CREATE UNIQUE INDEX order__idx ON
+    orders (
+        shipno
+    ASC );
+
+CREATE UNIQUE INDEX order__idxv1 ON
+    orders (
+        paymentno
+    ASC );
+
+ALTER TABLE orders ADD CONSTRAINT order_pk PRIMARY KEY ( orderno );
+
+CREATE TABLE orderdetail (
+    orderno           INTEGER NOT NULL,
+    isbn              VARCHAR(13) NOT NULL,
+    quantity          INTEGER,
+    priceeach         DECIMAL(6,2),
+    orderlinenumber   SMALLINT
+);
+
+ALTER TABLE orderdetail ADD CONSTRAINT orderdetail_pk PRIMARY KEY ( isbn,
+                                                                    orderno );
+
+CREATE TABLE payment (
+    paymentno   INTEGER NOT NULL,
+    amount      DECIMAL(10,2),
+    orderno     INTEGER NOT NULL,
+    shipno      INTEGER NOT NULL
+);
+
+CREATE UNIQUE INDEX payment__idx ON
+    payment (
+        orderno
+    ASC );
+
+CREATE UNIQUE INDEX payment__idxv1 ON
+    payment (
+        shipno
+    ASC );
+
+ALTER TABLE payment ADD CONSTRAINT payment_pk PRIMARY KEY ( paymentno );
+
+CREATE TABLE shipping (
+    shipno        INTEGER NOT NULL,
+    shipdate      DATE,
+    shipmethod    VARCHAR(30),
+    shipprice     DECIMAL(6,2),
+    shipaddress   CLOB,
+    shipstatus    VARCHAR(30),
+    trackingno    VARCHAR(20),
+    orderno       INTEGER NOT NULL,
+    paymentno     INTEGER NOT NULL
+);
+
+CREATE UNIQUE INDEX shipping__idx ON
+    shipping (
+        orderno
+    ASC );
+
+CREATE UNIQUE INDEX shipping__idxv1 ON
+    shipping (
+        paymentno
+    ASC );
+
+ALTER TABLE shipping ADD CONSTRAINT shipping_pk PRIMARY KEY ( shipno );
+
+ALTER TABLE orders
+    ADD CONSTRAINT order_customer_fk FOREIGN KEY ( customerid )
+        REFERENCES customer ( customerid );
+
+ALTER TABLE orders
+    ADD CONSTRAINT order_payment_fk FOREIGN KEY ( paymentno )
+        REFERENCES payment ( paymentno );
+
+ALTER TABLE orders
+    ADD CONSTRAINT order_shipping_fk FOREIGN KEY ( shipno )
+        REFERENCES shipping ( shipno );
+
+ALTER TABLE orderdetail
+    ADD CONSTRAINT orderdetail_book_fk FOREIGN KEY ( isbn )
+        REFERENCES book ( isbn );
+
+ALTER TABLE orderdetail
+    ADD CONSTRAINT orderdetail_orders_fk FOREIGN KEY ( orderno )
+        REFERENCES orders ( orderno );
+
+ALTER TABLE payment
+    ADD CONSTRAINT payment_orders_fk FOREIGN KEY ( orderno )
+        REFERENCES orders ( orderno );
+
+ALTER TABLE payment
+    ADD CONSTRAINT payment_shipping_fk FOREIGN KEY ( shipno )
+        REFERENCES shipping ( shipno );
+
+ALTER TABLE shipping
+    ADD CONSTRAINT shipping_orders_fk FOREIGN KEY ( orderno )
+        REFERENCES orders ( orderno );
+
+ALTER TABLE shipping
+    ADD CONSTRAINT shipping_payment_fk FOREIGN KEY ( paymentno )
+        REFERENCES payment ( paymentno );
