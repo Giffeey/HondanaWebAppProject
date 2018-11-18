@@ -13,9 +13,9 @@
         <link href="css/cssfooter.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <footer class="footer-distributed">
+        <footer class="footer-distributed mt-0 p-4">
 
-			<div class="footer-right">
+			<div class="footer-right m-l-auto">
 
                             <div class="facebook">
                                 <a href="#">
