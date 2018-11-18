@@ -26,11 +26,13 @@ import javax.transaction.UserTransaction;
  * @author GIFS
  */
 public class RegisterServlet extends HttpServlet {
+
     @Resource
     UserTransaction utx;
 
     @PersistenceUnit(unitName = "HondanaWebAppPU")
     EntityManagerFactory emf;
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -42,7 +44,7 @@ public class RegisterServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         String fName = request.getParameter("fName");
         String lName = request.getParameter("lName");
         String username = request.getParameter("username");
@@ -50,31 +52,38 @@ public class RegisterServlet extends HttpServlet {
         String address = request.getParameter("address");
         String phone = request.getParameter("phone");
         String email = request.getParameter("email");
-        
-        CustomerJpaController customerCtrl = new CustomerJpaController(utx, emf);
-      
-        int custId = customerCtrl.getCustomerCount()+1;
 
-        Customer customer = new Customer();
-        customer.setAddress(address);
-        customer.setCustomerid(custId);
-        customer.setEmail(email);
-        customer.setFirstname(fName);
-        customer.setLastname(lName);
-        customer.setPhone(phone);
-        customer.setUsername(username);
-        customer.setPassword(password);
-        
-        try {
-            customerCtrl.create(customer);
-        } catch (RollbackFailureException ex) {
-            Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception ex) {
-            Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
+        if (fName != null && lName != null && username != null && password != null && address != null && phone != null && email != null) {
+            CustomerJpaController customerCtrl = new CustomerJpaController(utx, emf);
+
+            int custId = customerCtrl.getCustomerCount() + 1;
+
+            Customer customer = new Customer();
+            customer.setAddress(address);
+            customer.setCustomerid(custId);
+            customer.setEmail(email);
+            customer.setFirstname(fName);
+            customer.setLastname(lName);
+            customer.setPhone(phone);
+            customer.setUsername(username);
+            customer.setPassword(password);
+            customer.setOrdersList(null);
+            try {
+                customerCtrl.create(customer);
+
+            } catch (RollbackFailureException ex) {
+                Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+                Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            request.setAttribute("msg", "สมัครสมาชิกเรียบร้อยแล้ว");
+            getServletContext().getRequestDispatcher("/Home.jsp").forward(request, response);
+            return;
         }
-        
-        getServletContext().getRequestDispatcher("/Home.jsp").forward(request, response);
-        
+
+        request.setAttribute("msg", "กรุณากรอกข้อมูลให้ถูกต้อง");
+        getServletContext().getRequestDispatcher("/Register.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -72,8 +72,8 @@
                             <form action="AddItemToCart" method="post">
                                 <input type="hidden" value="${book.isbn}" name="isbn" />
                                 <button type="submit" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                เพิ่มลงตะกร้า
-                            </button>
+                                    เพิ่มลงตะกร้า
+                                </button>
                             </form>
                         </div>
                     </div>

@@ -91,50 +91,40 @@
                                         <img src="img/user.png" style="margin:auto; width:100px; height:100px;" >
                                     </div><br>
                                     <!--Body-->
-                                    <div class="md-form">
-                                        UserName : <br>
-                                    ${customer.username}<br>
+                                    <div class="center"><center>
+                                        ${customer.username}</center><br>
 
                                 </div>
                                 <div class="md-form">
                                     First Name : <br>
-                                    ${customer.fname}<br>
+                                    ${customer.firstname}<br>
 
                                 </div>
                                 <div class="md-form">
                                     Last Name : <br>
-                                    ${cutomer.lname}<br>
+                                    ${customer.lastname}<br>
 
-                                </div>
+                                    <div class="md-form">
+                                        Phone : <br>
+                                        ${customer.phone}<br>
 
-                                <!--                                <div class="md-form">
-                                                                    
-                                                                    <i class="fa fa-lock prefix grey-text"></i>
-                                
-                                                                    <input type="password" class="form-control mb-2 mr-sm-2" id="psw" name="password" placeholder="Password"><br>
-                                                                </div>-->
+                                    </div>
+                                    <div class="md-form">
+                                        E-mail :<br>
+                                        ${customer.email}<br>
 
-                                <div class="md-form">
-                                    Phone : <br>
-                                    ${customer.phone}<br>
+                                    </div>
 
-                                </div>
-                                <div class="md-form">
-                                    E-mail :<br>
-                                    ${customer.email}<br>
+                                    <div class="form-group">
+                                        Address :<br>
+                                        ${customer.address}<br>
 
-                                </div>
+                                    </div>
 
-                                <div class="form-group">
-                                    Address :<br>
-                                    ${customer.address}<br>
+                                    <form action="History" method="post"> 
+                                        <div class="text-center" name="si">
 
-                                </div>
-                                </form>
-
-                                <div class="text-center" name="si>
-                                     <form action="Register" method="post">
-                                     <button class="button button1">ประวัติการซื้อ</button>
+                                             <button type="submit" class="button button1">ประวัติการซื้อ</button>
                                     </form>
                                 </div>
                             </div>

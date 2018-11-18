@@ -52,11 +52,11 @@
             }
 
             .button{
-                 font-size: 16px;
-                 margin: 4px 2px;
-                 padding: 12px 20px;
-                 border-radius: 12px;
-                 
+                font-size: 16px;
+                margin: 4px 2px;
+                padding: 12px 20px;
+                border-radius: 12px;
+
             }
             .button1 {
                 background-color: white; 
@@ -71,96 +71,66 @@
             }
         </style> 
         <jsp:include page="Head.jsp"></jsp:include>
-    </head>
-    <body>
-        <div class="container " style="width: 50rem">
-            <div class="row">
-                <!-- Grid column -->
-                <div class="col-12 p-5" name="sign-in" >
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="text-center default-text py-3" style="color:#4D4845"><i class="fa fa-lock"></i> SIGN IN</h3>
-                            <!--Body-->
-                            <div class="md-form">
-                                <i class="fa fa-envelope prefix grey-text"></i>
-                                <!--                                <input type="text" id="fname" class="form-control">
-                                                                <label for="firstname">First Name</label>-->
-                                <input type="text" class="form-control mb-2 mr-sm-2" id="fname" name="fName" placeholder="First Name"><br>
-                            </div>
-                            <div class="md-form">
-                                <i class="fa fa-lock prefix grey-text"></i>
-                                <!--                                <input type="text" id="lname" class="form-control">
-                                                                <label for="lastname">Last Name</label>-->
-                                <input type="text" class="form-control mb-2 mr-sm-2" id="lname" name="lName" placeholder="Last Name"><br>
-                            </div>
-                            <div class="md-form">
-                                <i class="fa fa-lock prefix grey-text"></i>
-                                <!--                                <input type="text" id="username" class="form-control">
-                                                                <label for="username">User Name</label>-->
-                                <input type="text" class="form-control mb-2 mr-sm-2" id="user" name="username" placeholder="User Name"><br>
-                            </div>
-                            <div class="md-form">
-                                <i class="fa fa-lock prefix grey-text"></i>
-                                <!--                                <input type="password" id="pwd" class="form-control">
-                                                                <label for="password">Password</label>-->
-                                <input type="password" class="form-control mb-2 mr-sm-2" id="psw" name="password" placeholder="Password"><br>
-                            </div>
-                            <!--                            <div class="md-form">
-                                                            <i class="fa fa-lock prefix grey-text"></i>
-                                                            <input type="password" id="pwd" class="form-control">
-                                                            <label for="password">Password</label>
-                                                        </div>-->
-                            <div class="md-form">
-                                <i class="fa fa-lock prefix grey-text"></i>
-                                <!--                                <input type="text" id="phone" class="form-control">
-                                                                <label for="phone">Phone</label>-->
-                                <input type="text" class="form-control mb-2 mr-sm-2" id="tel" name="phone" placeholder="Phone"><br>
-                            </div>
-                            <div class="md-form">
-                                <i class="fa fa-lock prefix grey-text"></i>
-                                <!--                                <input type="text" id="email" class="form-control">
-                                                                <label for="email">E-Mail</label>-->
-                                <input type="text" class="form-control mb-2 mr-sm-2" id="email" name="email" placeholder="E-mail"><br>
-                            </div>
-                            <!--                            <div class="md-form">
-                                                            <i class="fa fa-lock prefix grey-text"></i>
-                                                                                            <input type="text" id="address" class="form-control">
-                                                                                            <label for="address">Address</label>
-                                                            <input type="text" class="form-control mb-2 mr-sm-2" id="add" name="address" placeholder="Address"><br>
-                                                        </div>-->
+        </head>
+        <body>
+            <form action="Register" method="post">
+                <div class="container " style="width: 50rem">
+                    <div class="row">
 
-                            <div class="form-group">
-                                <!--<label for="exampleFormControlTextarea1">Example textarea</label>-->
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="address" placeholder="Address"></textarea>
-                            </div>
-                            </form>
-                            <!--                            <div class="md-form">
-                                                            <i class="fa fa-lock prefix grey-text"></i>
-                                                            <input type="text" class="form-control mb-2 mr-sm-2" id="dis" name="district" placeholder="District"><br>
-                                                        </div>
-                                                        <div class="md-form">
-                                                            <i class="fa fa-lock prefix grey-text"></i>
-                                                            <input type="text" class="form-control mb-2 mr-sm-2" id="amp" name="amphur" placeholder="Amphur"><br>
-                                                        </div>
-                                                        <div class="md-form">
-                                                            <i class="fa fa-lock prefix grey-text"></i>
-                                                            <input type="text" class="form-control mb-2 mr-sm-2" id="pv" name="province" placeholder="Province"><br>
-                                                        </div>
-                                                        <div class="md-form">
-                                                            <i class="fa fa-lock prefix grey-text"></i>
-                                                            <input type="text" class="form-control mb-2 mr-sm-2" id="zip" name="zipcode" placeholder="Zip Code"><br>
-                                                        </div>-->
-                            <div class="text-center" name="signup">
-                                <form action="Register" method="post">
-                                <button class="button button1">Sign up</button>
-                                </form>
+                        <div class="col-12 p-5" name="sign-in" >
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3 class="text-center default-text py-3" style="color:#4D4845"><i class="fa fa-lock"></i> SIGN IN</h3>
+
+                                    <div class="md-form">
+                                        <i class="fa fa-envelope prefix grey-text"></i>
+
+                                        <input type="text" class="form-control mb-2 mr-sm-2" id="fname" name="fName" placeholder="First Name"><br>
+                                    </div>
+                                    <div class="md-form">
+                                        <i class="fa fa-lock prefix grey-text"></i>
+
+                                        <input type="text" class="form-control mb-2 mr-sm-2" id="lname" name="lName" placeholder="Last Name"><br>
+                                    </div>
+                                    <div class="md-form">
+                                        <i class="fa fa-lock prefix grey-text"></i>
+
+                                        <input type="text" class="form-control mb-2 mr-sm-2" id="user" name="username" placeholder="User Name"><br>
+                                    </div>
+                                    <div class="md-form">
+                                        <i class="fa fa-lock prefix grey-text"></i>
+
+                                        <input type="password" class="form-control mb-2 mr-sm-2" id="psw" name="password" placeholder="Password"><br>
+                                    </div>
+
+                                    <div class="md-form">
+                                        <i class="fa fa-lock prefix grey-text"></i>
+                                        <!--                                <input type="text" id="phone" class="form-control">
+                                                                        <label for="phone">Phone</label>-->
+                                        <input type="tel" class="form-control mb-2 mr-sm-2" id="tel" name="phone" placeholder="Phone"><br>
+                                    </div>
+                                    <div class="md-form">
+                                        <i class="fa fa-lock prefix grey-text"></i>
+
+                                        <input type="email" class="form-control mb-2 mr-sm-2" id="email" name="email" placeholder="E-mail"><br>
+                                    </div>
+                                    <div class="form-group">
+
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="address" placeholder="Address"></textarea>
+                                    </div>
+                                    </form>
+
+                                    <div class="text-center" name="signup">
+
+                                        <button type="submit" class="button button1"> Sign up</button>
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-    </body>
-      <jsp:include page="Footer.jsp"></jsp:include>
+            </form>
+        </body>
+    <jsp:include page="Footer.jsp"></jsp:include>
 </html>

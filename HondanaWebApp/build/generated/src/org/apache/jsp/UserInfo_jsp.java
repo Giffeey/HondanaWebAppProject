@@ -195,9 +195,9 @@ public final class UserInfo_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    </div>\r\n");
       out.write("                </div>\r\n");
       out.write("            </div>\r\n");
-      out.write("        </div>\r\n");
-      out.write("    </body>\r\n");
-      out.write("      ");
+      out.write("        </div>     \r\n");
+      out.write("\r\n");
+      out.write("    </body> ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "Footer.jsp", out, false);
       out.write("\r\n");
       out.write("</html>\r\n");
