@@ -49,7 +49,7 @@ CREATE UNIQUE INDEX order__idxv1 ON
         paymentno
     ASC );
 
-ALTER TABLE orders ADD CONSTRAINT order_pk PRIMARY KEY ( orderno );
+ALTER TABLE orders ADD CONSTRAINT orders_pk PRIMARY KEY ( orderno );
 
 CREATE TABLE orderdetail (
     orderno           INTEGER NOT NULL,
@@ -59,8 +59,7 @@ CREATE TABLE orderdetail (
     orderlinenumber   SMALLINT
 );
 
-ALTER TABLE orderdetail ADD CONSTRAINT orderdetail_pk PRIMARY KEY ( isbn,
-                                                                    orderno );
+ALTER TABLE orderdetail ADD CONSTRAINT orderdetail_pk PRIMARY KEY ( isbn,orderno );
 
 CREATE TABLE payment (
     paymentno   INTEGER NOT NULL,
