@@ -68,13 +68,16 @@ public class RegisterServlet extends HttpServlet {
             customer.setUsername(username);
             customer.setPassword(password);
             customer.setOrdersList(null);
+            
             try {
                 customerCtrl.create(customer);
 
             } catch (RollbackFailureException ex) {
                 Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println(ex);
             } catch (Exception ex) {
                 Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println(ex);
             }
             
             request.setAttribute("msg", "สมัครสมาชิกเรียบร้อยแล้ว");
