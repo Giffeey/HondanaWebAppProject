@@ -41,14 +41,14 @@
                                     <td class="column-3">${line.book.price}</td>
                                     <td class="column-4">
                                         <div class="flex-w bo5 of-hidden w-size17">
-                                            <form action="DecreaseItem" method="post"><input type="hidden" name="isbn" value="${line.book.isbn}">
+                                            <form action="ShowCart" method="post"><input type="hidden" name="decrease" value="${line.book.isbn}">
                                                 <button type="submit" class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
                                                     <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
                                                 </button></form>
 
                                             <input class="size8 m-text18 t-center num-product" type="number" name="num-product1" value="${line.quantity}">
 
-                                            <form action="IncreaseItem" method="post"><input type="hidden" name="isbn" value="${line.book.isbn}">
+                                            <form action="ShowCart" method="post"><input type="hidden" name="increase" value="${line.book.isbn}">
                                                 <button type="submit" class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
                                                     <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
                                                 </button></form>
@@ -56,7 +56,7 @@
                                     </td>
                                     
                                     <td class="column-5">${line.totalPrice}</td>
-                                    <td class="column-6"><form action="RemoveItemInCart" method="post"><button type="submit" class="btn-light"><input type="hidden" name="isbn" value="${line.book.isbn}">Remove Book</button></form></td>
+                                    <td class="column-6"><form action="ShowCart" method="post"><button type="submit" class="btn-light"><input type="hidden" name="remove" value="${line.book.isbn}">Remove Book</button></form></td>
                                 </tr>
                             </c:forEach>
                         </table>

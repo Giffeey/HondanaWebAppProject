@@ -8,6 +8,7 @@ package book.servlet;
 import book.controller.CustomerJpaController;
 import book.controller.ShippingJpaController;
 import book.controller.exceptions.RollbackFailureException;
+import book.model.Cart;
 import book.model.Customer;
 import book.model.Orders;
 import book.model.Shipping;
@@ -53,38 +54,41 @@ public class ShippingServlet extends HttpServlet {
         if (session != null) {
             Customer customer = (Customer) session.getAttribute("customer");
             if (customer != null) {
-                String address = request.getParameter("shipAddress");
-                String method = request.getParameter("shipMethod");
-                String price = request.getParameter("shipPrice");
-                double shipPrice = Double.valueOf(price);
-                CustomerJpaController customerCtrl = new CustomerJpaController(utx, emf);
-                Customer cust = customerCtrl.findCustomer(customer.getCustomerid());
-                if (cust != null) {
-                    cust.setAddress(address);
-                    Orders order = (Orders) session.getAttribute("order");
+                Cart cart = (Cart) request.getAttribute("cart");
+                if (cart != null) {
 
-                    ShippingJpaController shipCtrl = new ShippingJpaController(utx, emf);
+                    String address = request.getParameter("shipAddress");
+                    String method = request.getParameter("shipMethod");
+                    String price = request.getParameter("shipPrice");
+                    double shipPrice = Double.valueOf(price);
+                    CustomerJpaController customerCtrl = new CustomerJpaController(utx, emf);
+                    Customer cust = customerCtrl.findCustomer(customer.getCustomerid());
+                    if (cust != null) {
+                        cust.setAddress(address);
+                        Orders order = (Orders) session.getAttribute("order");
 
-                    Shipping shipping = new Shipping();
-                    shipping.setShipno(shipCtrl.getShippingCount() + 1);
-                    shipping.setShipaddress(address);
-                    shipping.setShipmethod(method);
-                    shipping.setOrderno(order);
-                    shipping.setShipprice(BigDecimal.valueOf(shipPrice));
-                    try {
-                        customerCtrl.edit(cust);
-                        shipCtrl.create(shipping);
-                    } catch (RollbackFailureException ex) {
-                        Logger.getLogger(ShippingServlet.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (Exception ex) {
-                        Logger.getLogger(ShippingServlet.class.getName()).log(Level.SEVERE, null, ex);
+                        ShippingJpaController shipCtrl = new ShippingJpaController(utx, emf);
+
+                        Shipping shipping = new Shipping();
+                        shipping.setShipno(shipCtrl.getShippingCount() + 1);
+                        shipping.setShipaddress(address);
+                        shipping.setShipmethod(method);
+                        shipping.setOrderno(order);
+                        shipping.setShipprice(BigDecimal.valueOf(shipPrice));
+                        try {
+                            customerCtrl.edit(cust);
+                            shipCtrl.create(shipping);
+                        } catch (RollbackFailureException ex) {
+                            Logger.getLogger(ShippingServlet.class.getName()).log(Level.SEVERE, null, ex);
+                        } catch (Exception ex) {
+                            Logger.getLogger(ShippingServlet.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        session.setAttribute("customer", cust);
+                        session.setAttribute("shipping", shipping);
+                        response.sendRedirect("PaymentPage");
+                        return;
                     }
-                    session.setAttribute("customer", cust);
-                    session.setAttribute("shipping", shipping);
-                    response.sendRedirect("PaymentPage");
-                    return;
                 }
-
             }
         }
 

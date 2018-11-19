@@ -16,6 +16,7 @@ import book.model.OrderdetailPK;
 import book.model.Orders;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -59,58 +60,26 @@ public class ShippingPageServlet extends HttpServlet {
         if (session != null) {
             Customer customer = (Customer) session.getAttribute("customer");            
             if (customer != null) {
-//                Cart cart = (Cart) request.getAttribute("cart");
-//                System.out.println("cart is "+cart);
-//                OrdersJpaController orderCtrl = new OrdersJpaController(utx, emf);
-//                Orders order = new Orders();
-//
-//                order.setCustomerid(customer);
-//                order.setOrderdate(new Date());
-//                order.setOrderno(orderCtrl.getOrdersCount() + 1);
-//                order.setTotalbook(cart.getTotalQuantity());
-//                order.setStatus("ยังไม่ได้ชำระเงิน");
-//
-//                OrderdetailJpaController detailCtrl = new OrderdetailJpaController(utx, emf);
-//                List<Orderdetail> detail = new ArrayList<>();
-//                OrderdetailPK detailPK;
-//                int i = 1;
-//                for (LineItem lineItem : cart.getLineItems()) {
-//                    detailPK = new OrderdetailPK(order.getOrderno(), lineItem.getBook().getIsbn());
-//                    Orderdetail de = new Orderdetail(detailPK);
-//                    de.setPriceeach(lineItem.getBook().getPrice());
-//                    de.setQuantity(lineItem.getQuantity());
-//                    try {
-//                        detailCtrl.create(de);
-//                    } catch (RollbackFailureException ex) {
-//                        Logger.getLogger(ShippingPageServlet.class.getName()).log(Level.SEVERE, null, ex);
-//                    } catch (Exception ex) {
-//                        Logger.getLogger(ShippingPageServlet.class.getName()).log(Level.SEVERE, null, ex);
-//                    }
-//                    detail.add(de);
-//                }
-//                
-//                order.setOrderdetailList(detail);
-//                
-//                try {
-//                    orderCtrl.create(order);
-//                } catch (RollbackFailureException ex) {
-//                    Logger.getLogger(ShippingPageServlet.class.getName()).log(Level.SEVERE, null, ex);
-//                } catch (Exception ex) {
-//                    Logger.getLogger(ShippingPageServlet.class.getName()).log(Level.SEVERE, null, ex);
-//                }
-//                
-//                if (customer.getAddress() != null) {
-//                    String address = customer.getAddress();
-//                    session.setAttribute("address", address);
-//                }
-//
-//                session.setAttribute("order", order);
-//                session.setAttribute("orderDetail", detail);
-                getServletContext().getRequestDispatcher("/Shipping.jsp").forward(request, response);
-                return;
+                Cart cart = (Cart) session.getAttribute("cart");
+                if(cart != null){
+                    
+                    if(cart.getTotalPrice().compareTo(BigDecimal.valueOf(500)) >=0){
+ 
+                        request.setAttribute("amount", cart.getTotalPrice());
+                    }else{
+                        String shipMethod = (String) request.getAttribute("shipMethod");
+                        request.setAttribute("amount", (cart.getTotalPrice().add(BigDecimal.valueOf(50))));
+                    }
+                    
+                    List<LineItem> line = cart.getLineItems();
+                    
+                    session.setAttribute("LineItem", line);
+                    
+                    getServletContext().getRequestDispatcher("/Shipping.jsp").forward(request, response);
+                    return;
+                }
             }
         }
-
         getServletContext().getRequestDispatcher("/Home.jsp").forward(request, response);
     }
 

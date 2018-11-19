@@ -63,7 +63,7 @@ public class AddItemToCartServlet extends HttpServlet {
             }
         }
         request.setAttribute("msg", "เข้าสู่ระบบก่อนทำการเพิ่มสินค้าลงตะกร้า");
-        getServletContext().getRequestDispatcher("/Home.jsp").forward(request, response);
+        response.sendRedirect("Login");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

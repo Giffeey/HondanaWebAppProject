@@ -1,0 +1,9 @@
+CREATE TABLE CREDITCARD (
+  cardNo varchar(20) NOT NULL,
+  cardType varchar(20) NOT NULL,
+  securityCode varchar(4) NOT NULL,
+  nameOnCard varchar(50) NOT NULL,
+  expiryDate date NOT NULL,
+  creditLimit decimal(10,2) NOT NULL,
+  CONSTRAINT card_pk PRIMARY KEY ( cardNo )
+);

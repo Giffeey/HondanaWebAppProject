@@ -5,20 +5,33 @@
  */
 package book.servlet;
 
+import book.controller.BookJpaController;
+import book.model.Book;
 import book.model.Customer;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import javax.annotation.Resource;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceUnit;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.transaction.UserTransaction;
 
 /**
  *
  * @author GIFS
  */
 public class LogoutServlet extends HttpServlet {
+
+    @Resource
+    UserTransaction utx;
+
+    @PersistenceUnit(unitName = "HondanaWebAppPU")
+    EntityManagerFactory emf;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,7 +50,13 @@ public class LogoutServlet extends HttpServlet {
             Customer customer = (Customer) session.getAttribute("customer");
             if (customer != null) {
                 session.invalidate();
-                getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
+
+                BookJpaController bookCtrl = new BookJpaController(utx, emf);
+                List<Book> book = bookCtrl.findBookEntities();
+                request.getSession(true).setAttribute("showBook", book);
+
+                response.sendRedirect("Home");
+                return;
             }
         }
         getServletContext().getRequestDispatcher("/Home.jsp").forward(request, response);

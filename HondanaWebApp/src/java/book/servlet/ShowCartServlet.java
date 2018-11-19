@@ -5,6 +5,7 @@
  */
 package book.servlet;
 
+import book.controller.BookJpaController;
 import book.model.Book;
 import book.model.Cart;
 import java.io.IOException;
@@ -25,11 +26,13 @@ import javax.transaction.UserTransaction;
  * @author GIFS
  */
 public class ShowCartServlet extends HttpServlet {
+
     @Resource
     UserTransaction utx;
-    
-    @PersistenceUnit (unitName="HondanaWebAppPU")
+
+    @PersistenceUnit(unitName = "HondanaWebAppPU")
     EntityManagerFactory emf;
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -45,13 +48,42 @@ public class ShowCartServlet extends HttpServlet {
         if (session != null) {
             Cart cart = (Cart) session.getAttribute("cart");
             if (cart != null) {
+                String increase = request.getParameter("increase");
+                String decrease = request.getParameter("decrease");
+                String remove = request.getParameter("remove");
+                BookJpaController bookCtrl = new BookJpaController(utx, emf);
+                if (increase != null) {
+
+                    Book book = bookCtrl.findBook(increase);
+                    if (book != null) {
+                        cart.increaseBook(book);
+                    }
+
+                }
+                if (decrease != null) {
+
+                    Book book = bookCtrl.findBook(decrease);
+                    if (book != null) {
+                        cart.decreaseBook(book);
+                    }
+
+                }
+                if (remove != null) {
+
+                    Book book = bookCtrl.findBook(remove);
+                    if (book != null) {
+                        cart.remove(book);
+                    }
+
+                }
                 session.setAttribute("cart", cart);
                 getServletContext().getRequestDispatcher("/ShowItemInCart.jsp").forward(request, response);
                 return;
             }
+
         }
         request.setAttribute("msg", "เข้าสู่ระบบก่อนทำการเพิ่มสินค้าลงตะกร้า");
-        getServletContext().getRequestDispatcher("/Home.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

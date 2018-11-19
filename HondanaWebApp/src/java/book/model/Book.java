@@ -33,9 +33,9 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Book.findAll", query = "SELECT b FROM Book b")
     , @NamedQuery(name = "Book.findByIsbn", query = "SELECT b FROM Book b WHERE b.isbn = :isbn")
-    , @NamedQuery(name = "Book.findByBookname", query = "SELECT b FROM Book b WHERE b.bookname = :bookname")
-    , @NamedQuery(name = "Book.findByAuthor", query = "SELECT b FROM Book b WHERE b.author = :author")
-    , @NamedQuery(name = "Book.findByPublisher", query = "SELECT b FROM Book b WHERE b.publisher = :publisher")
+    , @NamedQuery(name = "Book.findByBookname", query = "SELECT b FROM Book b WHERE b.bookname LIKE :bookname")
+    , @NamedQuery(name = "Book.findByAuthor", query = "SELECT b FROM Book b WHERE b.author LIKE :author")
+    , @NamedQuery(name = "Book.findByPublisher", query = "SELECT b FROM Book b WHERE b.publisher LIKE :publisher")
     , @NamedQuery(name = "Book.findByCategory", query = "SELECT b FROM Book b WHERE b.category = :category")
     , @NamedQuery(name = "Book.findByGenre", query = "SELECT b FROM Book b WHERE b.genre = :genre")
     , @NamedQuery(name = "Book.findByNumofpage", query = "SELECT b FROM Book b WHERE b.numofpage = :numofpage")
