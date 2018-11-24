@@ -5,34 +5,18 @@
  */
 package book.servlet;
 
-import book.controller.BookJpaController;
-import book.model.Book;
-import book.model.Customer;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
-import javax.annotation.Resource;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.PersistenceUnit;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.transaction.UserTransaction;
 
 /**
  *
  * @author GIFS
  */
-public class CategoryOfBookServlet extends HttpServlet {
-
-    @Resource
-    UserTransaction utx;
-
-    @PersistenceUnit(unitName = "HondanaWebAppPU")
-    EntityManagerFactory emf;
+public class SearchServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -45,39 +29,22 @@ public class CategoryOfBookServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession(false);
-        String category = request.getParameter("category");
-        String cate = "";
-        if(category.equalsIgnoreCase("novel")){
-            cate = "นิยาย";
-        }else if(category.equalsIgnoreCase("trannovel")){
-            cate = "นิยายแปล";
-        }else if(category.equalsIgnoreCase("manage")){
-            cate = "บริหาร";
-        }else if(category.equalsIgnoreCase("garden")){
-            cate = "บ้านและสวน";
-        }else if(category.equalsIgnoreCase("psychology")){
-            cate = "จิตวิทยา";
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet SearchServlet</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet SearchServlet at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
-        
-        BookJpaController bookCtrl = new BookJpaController(utx, emf);
-        List<Book> book = bookCtrl.findBookEntities();
-        List<Book> bookByCate = new ArrayList<>();
-        System.out.println(category);
-        for (Book books : book) {
-            System.out.println(books.getCategory());
-            if (books.getCategory().equalsIgnoreCase(cate)) {
-                bookByCate.add(books);
-                System.out.println(books);
-            }
-        }
-
-        request.setAttribute("books", bookByCate);
-        getServletContext().getRequestDispatcher("/BookList.jsp").forward(request, response);
-
     }
 
-// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *

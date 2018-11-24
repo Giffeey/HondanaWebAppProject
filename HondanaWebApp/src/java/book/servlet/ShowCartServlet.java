@@ -80,6 +80,8 @@ public class ShowCartServlet extends HttpServlet {
                 getServletContext().getRequestDispatcher("/ShowItemInCart.jsp").forward(request, response);
                 return;
             }
+            request.setAttribute("msg", "ไม่มีสินค้าในตะกร้า");
+            response.sendRedirect("Home");
 
         }
         request.setAttribute("msg", "เข้าสู่ระบบก่อนทำการเพิ่มสินค้าลงตะกร้า");

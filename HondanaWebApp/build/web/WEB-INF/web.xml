@@ -84,6 +84,10 @@
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>book.servlet.RegisterServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SearchServlet</servlet-name>
+        <servlet-class>book.servlet.SearchServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -167,6 +171,10 @@
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/Register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchServlet</servlet-name>
+        <url-pattern>/Search</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

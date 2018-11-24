@@ -200,9 +200,10 @@
 
             <div class="header-icons">
                 <div class="header-wrapicon2">
-                    <a href="#" class="header-wrapicon1 dis-block">
-                        <img src="img/magnifying-glass.png" class="header-icon1 js-show-header-dropdown" alt="search">
-                    </a>
+                    <form action="Search" method="post" class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
+                        <input type="image" style="width: 25px; height: 25px;" name="iconsearch" value="submit" src="img/magnifying-glass.png" alt="search">
+                    </form>
                 </div>
                 <span class="linedivide1"></span>
                 <a href="ShowCart" class="header-wrapicon1 dis-block">
