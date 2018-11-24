@@ -229,7 +229,7 @@ public class BookJpaController implements Serializable {
         EntityManager em = getEntityManager();
         try {
             Query query = em.createNamedQuery("Book.findByAuthor");
-            query.setParameter("author", "%" + author + "%");
+            query.setParameter("author", "%" + author.toLowerCase() + "%");
             return query.getResultList();
         } finally {
             em.close();
@@ -240,7 +240,7 @@ public class BookJpaController implements Serializable {
         EntityManager em = getEntityManager();
         try {
             Query query = em.createNamedQuery("Book.findByPublisher");
-            query.setParameter("publisher", "%" + publisher + "%");
+            query.setParameter("publisher", "%" + publisher.toLowerCase() + "%");
             return query.getResultList();
         } finally {
             em.close();

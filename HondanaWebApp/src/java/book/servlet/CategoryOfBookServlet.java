@@ -63,12 +63,9 @@ public class CategoryOfBookServlet extends HttpServlet {
         BookJpaController bookCtrl = new BookJpaController(utx, emf);
         List<Book> book = bookCtrl.findBookEntities();
         List<Book> bookByCate = new ArrayList<>();
-        System.out.println(category);
         for (Book books : book) {
-            System.out.println(books.getCategory());
             if (books.getCategory().equalsIgnoreCase(cate)) {
                 bookByCate.add(books);
-                System.out.println(books);
             }
         }
 

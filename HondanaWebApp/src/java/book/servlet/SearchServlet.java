@@ -5,18 +5,32 @@
  */
 package book.servlet;
 
+import book.controller.BookJpaController;
+import book.model.Book;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+import javax.annotation.Resource;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceUnit;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.transaction.UserTransaction;
 
 /**
  *
  * @author GIFS
  */
 public class SearchServlet extends HttpServlet {
+
+    @Resource
+    UserTransaction utx;
+
+    @PersistenceUnit(unitName = "HondanaWebAppPU")
+    EntityManagerFactory emf;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,19 +43,38 @@ public class SearchServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet SearchServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet SearchServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+
+        String search = request.getParameter("search");
+
+        BookJpaController bookCtrl = new BookJpaController(utx, emf);
+        List<Book> searchList = new ArrayList<>();
+        List<Book> searchByBookName = bookCtrl.findBookByName(search);
+
+        if (!searchByBookName.isEmpty()) {
+            for (Book book : searchByBookName) {
+                searchList.add(book);
+            }
         }
+        List<Book> searchByAuthor = bookCtrl.findBookByAuthor(search);
+
+        if (!searchByAuthor.isEmpty()) {
+            for (Book book : searchByAuthor) {
+                searchList.add(book);
+            }
+        }
+        List<Book> searchByPublisher = bookCtrl.findBookByPublisher(search);
+        if (!searchByPublisher.isEmpty()) {
+            for (Book book : searchByPublisher) {
+                searchList.add(book);
+            }
+        }
+
+        request.setAttribute("books", searchList);
+        getServletContext().getRequestDispatcher("/BookList.jsp").forward(request, response);
+
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
