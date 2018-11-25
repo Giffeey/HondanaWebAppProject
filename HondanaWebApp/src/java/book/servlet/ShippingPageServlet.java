@@ -65,10 +65,10 @@ public class ShippingPageServlet extends HttpServlet {
                     
                     if(cart.getTotalPrice().compareTo(BigDecimal.valueOf(500)) >=0){
  
-                        request.setAttribute("amount", cart.getTotalPrice());
+                        session.setAttribute("amount", cart.getTotalPrice());
                     }else{
                         String shipMethod = (String) request.getAttribute("shipMethod");
-                        request.setAttribute("amount", (cart.getTotalPrice().add(BigDecimal.valueOf(50))));
+                        session.setAttribute("amount", (cart.getTotalPrice().add(BigDecimal.valueOf(50))));
                     }
                     
                     List<LineItem> line = cart.getLineItems();

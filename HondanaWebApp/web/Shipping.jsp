@@ -24,43 +24,43 @@
                     <h2>Checkout</h2>
 
                 </div>
+                <form class="needs-validation" novalidate action="Shipping" method="post"> 
+                    <div class="row">
+                        <div class="col-md-4 order-md-2 mb-4">
+                            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="text-muted">Your cart</span>
+                                <span class="badge badge-secondary badge-pill">${cart.totalQuantity}</span>
+                        </h4>
+                        <ul class="list-group mb-4">
+                            <c:forEach items="${LineItem}" var="line"> 
+                                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                    <div>
+                                        <h6 class="my-0">${line.book.bookname}</h6>
+                                        <small class="text-muted">${line.quantity} เล่ม</small>
+                                    </div>
+                                    <span class="text-muted">${line.totalPrice}฿</span>
+                                </li>
+                            </c:forEach>
+                            <li class="list-group-item d-flex justify-content-between bg-light">
+                                <div class="text-success">
+                                    <h6 class="my-0">ค่าขนส่ง</h6>
+                                    <small>ฟรี</small>
 
-                <div class="row">
-                    <div class="col-md-4 order-md-2 mb-4">
-                        <h4 class="d-flex justify-content-between align-items-center mb-3">
-                            <span class="text-muted">Your cart</span>
-                            <span class="badge badge-secondary badge-pill">${cart.totalQuantity}</span>
-                    </h4>
-                    <ul class="list-group mb-4">
-                        <c:forEach items="${LineItem}" var="line"> 
-                            <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                <div>
-                                    <h6 class="my-0">${line.book.bookname}</h6>
-                                    <small class="text-muted">${line.quantity} เล่ม</small>
                                 </div>
-                                <span class="text-muted">${line.totalPrice}฿</span>
+                                <span class="text-success">
+                                    0฿
+                                </span>
                             </li>
-                        </c:forEach>
-                        <li class="list-group-item d-flex justify-content-between bg-light">
-                            <div class="text-success">
-                                <h6 class="my-0">ค่าขนส่ง</h6>
-                                <small>ฟรี</small>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>รวม</span>
+                                <strong><input type="hidden" name="amount" value="${cart.totalPrice}">${cart.totalPrice}฿</strong>
+                            </li>
+                        </ul>
 
-                            </div>
-                            <span class="text-success">
-                                0฿
-                            </span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>รวม</span>
-                            <strong><input type="hidden" name="amount">${cart.totalPrice}฿</strong>
-                        </li>
-                    </ul>
+                    </div>
+                    <div class="col-md-8 order-md-1">
+                        <h4 class="mb-3">Billing address</h4>
 
-                </div>
-                <div class="col-md-8 order-md-1">
-                    <h4 class="mb-3">Billing address</h4>
-                    <form class="needs-validation" novalidate action="Shipping" method="post"> 
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="firstName">First name</label>
@@ -80,7 +80,7 @@
 
                         <div class="mb-3">
                             <label for="address">Address</label>
-                            <input type="text" class="form-control" id="address" placeholder="55/55 ถ.หญ้ารก ต.น้ำใส อ.เห็นปลา จ.งามดี 55555" value="${customer.address}" required>
+                            <input type="text" name="shipAddress" class="form-control" id="address" placeholder="55/55 ถ.หญ้ารก ต.น้ำใส อ.เห็นปลา จ.งามดี 55555" value="${customer.address}" required>
                             <div class="invalid-feedback">
                                 Please enter your shipping address.
                             </div>
@@ -140,10 +140,10 @@
                         <hr class="mb-4">
 
                         <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
-                    </form>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <div class="py-5 text-center"></div>
+                <div class="py-5 text-center"></div>
 
         </div>
 

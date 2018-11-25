@@ -52,16 +52,6 @@ public class ShippingJpaController implements Serializable {
                 illegalOrphanMessages.add("The Orders " + ordernoOrphanCheck + " already has an item of type Shipping whose orderno column cannot be null. Please make another selection for the orderno field.");
             }
         }
-        Payment paymentnoOrphanCheck = shipping.getPaymentno();
-        if (paymentnoOrphanCheck != null) {
-            Shipping oldShipnoOfPaymentno = paymentnoOrphanCheck.getShipno();
-            if (oldShipnoOfPaymentno != null) {
-                if (illegalOrphanMessages == null) {
-                    illegalOrphanMessages = new ArrayList<String>();
-                }
-                illegalOrphanMessages.add("The Payment " + paymentnoOrphanCheck + " already has an item of type Shipping whose paymentno column cannot be null. Please make another selection for the paymentno field.");
-            }
-        }
         if (illegalOrphanMessages != null) {
             throw new IllegalOrphanException(illegalOrphanMessages);
         }
@@ -113,6 +103,11 @@ public class ShippingJpaController implements Serializable {
                 orderno = em.merge(orderno);
             }
             if (paymentno != null) {
+                Shipping oldShipnoOfPaymentno = paymentno.getShipno();
+                if (oldShipnoOfPaymentno != null) {
+                    oldShipnoOfPaymentno.setPaymentno(null);
+                    oldShipnoOfPaymentno = em.merge(oldShipnoOfPaymentno);
+                }
                 paymentno.setShipno(shipping);
                 paymentno = em.merge(paymentno);
             }
@@ -155,18 +150,6 @@ public class ShippingJpaController implements Serializable {
                 }
                 illegalOrphanMessages.add("You must retain Payment " + paymentOld + " since its shipno field is not nullable.");
             }
-            if (ordersOld != null && !ordersOld.equals(ordersNew)) {
-                if (illegalOrphanMessages == null) {
-                    illegalOrphanMessages = new ArrayList<String>();
-                }
-                illegalOrphanMessages.add("You must retain Orders " + ordersOld + " since its shipno field is not nullable.");
-            }
-            if (ordernoOld != null && !ordernoOld.equals(ordernoNew)) {
-                if (illegalOrphanMessages == null) {
-                    illegalOrphanMessages = new ArrayList<String>();
-                }
-                illegalOrphanMessages.add("You must retain Orders " + ordernoOld + " since its shipno field is not nullable.");
-            }
             if (ordernoNew != null && !ordernoNew.equals(ordernoOld)) {
                 Shipping oldShipnoOfOrderno = ordernoNew.getShipno();
                 if (oldShipnoOfOrderno != null) {
@@ -181,15 +164,6 @@ public class ShippingJpaController implements Serializable {
                     illegalOrphanMessages = new ArrayList<String>();
                 }
                 illegalOrphanMessages.add("You must retain Payment " + paymentnoOld + " since its shipno field is not nullable.");
-            }
-            if (paymentnoNew != null && !paymentnoNew.equals(paymentnoOld)) {
-                Shipping oldShipnoOfPaymentno = paymentnoNew.getShipno();
-                if (oldShipnoOfPaymentno != null) {
-                    if (illegalOrphanMessages == null) {
-                        illegalOrphanMessages = new ArrayList<String>();
-                    }
-                    illegalOrphanMessages.add("The Payment " + paymentnoNew + " already has an item of type Shipping whose paymentno column cannot be null. Please make another selection for the paymentno field.");
-                }
             }
             if (illegalOrphanMessages != null) {
                 throw new IllegalOrphanException(illegalOrphanMessages);
@@ -220,6 +194,10 @@ public class ShippingJpaController implements Serializable {
                 paymentNew.setShipno(shipping);
                 paymentNew = em.merge(paymentNew);
             }
+            if (ordersOld != null && !ordersOld.equals(ordersNew)) {
+                ordersOld.setShipno(null);
+                ordersOld = em.merge(ordersOld);
+            }
             if (ordersNew != null && !ordersNew.equals(ordersOld)) {
                 Shipping oldShipnoOfOrders = ordersNew.getShipno();
                 if (oldShipnoOfOrders != null) {
@@ -229,11 +207,20 @@ public class ShippingJpaController implements Serializable {
                 ordersNew.setShipno(shipping);
                 ordersNew = em.merge(ordersNew);
             }
+            if (ordernoOld != null && !ordernoOld.equals(ordernoNew)) {
+                ordernoOld.setShipno(null);
+                ordernoOld = em.merge(ordernoOld);
+            }
             if (ordernoNew != null && !ordernoNew.equals(ordernoOld)) {
                 ordernoNew.setShipno(shipping);
                 ordernoNew = em.merge(ordernoNew);
             }
             if (paymentnoNew != null && !paymentnoNew.equals(paymentnoOld)) {
+                Shipping oldShipnoOfPaymentno = paymentnoNew.getShipno();
+                if (oldShipnoOfPaymentno != null) {
+                    oldShipnoOfPaymentno.setPaymentno(null);
+                    oldShipnoOfPaymentno = em.merge(oldShipnoOfPaymentno);
+                }
                 paymentnoNew.setShipno(shipping);
                 paymentnoNew = em.merge(paymentnoNew);
             }
@@ -279,20 +266,6 @@ public class ShippingJpaController implements Serializable {
                 }
                 illegalOrphanMessages.add("This Shipping (" + shipping + ") cannot be destroyed since the Payment " + paymentOrphanCheck + " in its payment field has a non-nullable shipno field.");
             }
-            Orders ordersOrphanCheck = shipping.getOrders();
-            if (ordersOrphanCheck != null) {
-                if (illegalOrphanMessages == null) {
-                    illegalOrphanMessages = new ArrayList<String>();
-                }
-                illegalOrphanMessages.add("This Shipping (" + shipping + ") cannot be destroyed since the Orders " + ordersOrphanCheck + " in its orders field has a non-nullable shipno field.");
-            }
-            Orders ordernoOrphanCheck = shipping.getOrderno();
-            if (ordernoOrphanCheck != null) {
-                if (illegalOrphanMessages == null) {
-                    illegalOrphanMessages = new ArrayList<String>();
-                }
-                illegalOrphanMessages.add("This Shipping (" + shipping + ") cannot be destroyed since the Orders " + ordernoOrphanCheck + " in its orderno field has a non-nullable shipno field.");
-            }
             Payment paymentnoOrphanCheck = shipping.getPaymentno();
             if (paymentnoOrphanCheck != null) {
                 if (illegalOrphanMessages == null) {
@@ -302,6 +275,16 @@ public class ShippingJpaController implements Serializable {
             }
             if (illegalOrphanMessages != null) {
                 throw new IllegalOrphanException(illegalOrphanMessages);
+            }
+            Orders orders = shipping.getOrders();
+            if (orders != null) {
+                orders.setShipno(null);
+                orders = em.merge(orders);
+            }
+            Orders orderno = shipping.getOrderno();
+            if (orderno != null) {
+                orderno.setShipno(null);
+                orderno = em.merge(orderno);
             }
             em.remove(shipping);
             utx.commit();

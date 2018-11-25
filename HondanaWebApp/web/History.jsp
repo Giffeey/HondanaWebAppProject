@@ -4,11 +4,12 @@
     Author     : GIFS
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        
+
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -28,49 +29,35 @@
             }
             /*table{background-color: #f2f2f2;}*/
         </style>
-         <jsp:include page="Head.jsp"></jsp:include>
-    </head>
-    <body>
-        
+        <jsp:include page="Head.jsp"></jsp:include>
+        </head>
+        <body>
+
             <br>
             <h1 style="font-family: 'Quark-Bold'">ประวัติการสั่งซื้อ</h1>
-        
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">OrderNo</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">numbook</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Detail</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row"></th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                <th scope="row"></th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                   <th scope="row"></th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">OrderNo</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">numbook</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${orderHistory}" var="order" >
+                    <tr>
+                        <th scope="row">${order.orderno}</th>
+                        <td>${order.orderdate}</td>
+                        <td>${order.totalbook}</td>
+                        <td>${order.paymentno.amount}</td>
+                        <td>${order.status}</td>
+                        <td><form action="HistoryDetail" method="post"><input type="hidden" name="orderNo" value="${order.orderno}"><button type="submit" >Order Detail</button></form></td>
+                    </tr>
+                </c:forEach>
             </tbody>
         </table>
     </body>

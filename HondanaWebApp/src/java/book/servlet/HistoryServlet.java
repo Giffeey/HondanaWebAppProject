@@ -54,7 +54,8 @@ public class HistoryServlet extends HttpServlet {
                 
                 for(Orders order : orderList){
                     if(order.getCustomerid().getCustomerid().equals(customer.getCustomerid())){
-                        orders.add(order);             
+                        orders.add(order);     
+                        System.out.println(order);
                     }
                 }
                 

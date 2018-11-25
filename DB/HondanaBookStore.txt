@@ -1,4 +1,4 @@
-﻿-- DBNAME: HondanaBookStore USER: book PASS: book DBSource: java:app/HondanaBookStore --
+﻿-- DBNAME : HondanaDatabase USER: book PASS: book  DBSource: java:app/HondanaDatabase --
 
 CREATE TABLE book (
     isbn              VARCHAR(13) NOT NULL,
@@ -35,8 +35,8 @@ CREATE TABLE orders (
     status       VARCHAR(50),
     totalprice   DECIMAL(10,2),
     customerid   INTEGER NOT NULL,
-    shipno       INTEGER NOT NULL,
-    paymentno    INTEGER NOT NULL
+    shipno       INTEGER,
+    paymentno    INTEGER
 );
 
 CREATE UNIQUE INDEX order__idx ON
@@ -64,8 +64,8 @@ ALTER TABLE orderdetail ADD CONSTRAINT orderdetail_pk PRIMARY KEY ( isbn,orderno
 CREATE TABLE payment (
     paymentno   INTEGER NOT NULL,
     amount      DECIMAL(10,2),
-    orderno     INTEGER NOT NULL,
-    shipno      INTEGER NOT NULL
+    orderno     INTEGER,
+    shipno      INTEGER
 );
 
 CREATE UNIQUE INDEX payment__idx ON
@@ -88,8 +88,8 @@ CREATE TABLE shipping (
     shipaddress   CLOB,
     shipstatus    VARCHAR(30),
     trackingno    VARCHAR(20),
-    orderno       INTEGER NOT NULL,
-    paymentno     INTEGER NOT NULL
+    orderno       INTEGER,
+    paymentno     INTEGER
 );
 
 CREATE UNIQUE INDEX shipping__idx ON

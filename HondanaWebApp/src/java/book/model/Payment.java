@@ -8,7 +8,6 @@ package book.model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -48,9 +47,9 @@ public class Payment implements Serializable {
     @JoinColumn(name = "SHIPNO", referencedColumnName = "SHIPNO")
     @OneToOne(optional = false)
     private Shipping shipno;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "paymentno")
+    @OneToOne(mappedBy = "paymentno")
     private Orders orders;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "paymentno")
+    @OneToOne(mappedBy = "paymentno")
     private Shipping shipping;
 
     public Payment() {

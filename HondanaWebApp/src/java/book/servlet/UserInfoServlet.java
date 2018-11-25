@@ -35,6 +35,7 @@ public class UserInfoServlet extends HttpServlet {
         HttpSession session = request.getSession(false);
         if(session != null){
             Customer customer = (Customer) session.getAttribute("customer");
+            System.out.println(customer);
             if(customer!=null){
                 getServletContext().getRequestDispatcher("/UserInfo.jsp").forward(request, response);
                 return;

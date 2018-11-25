@@ -67,10 +67,10 @@ public class Orders implements Serializable {
     @ManyToOne(optional = false)
     private Customer customerid;
     @JoinColumn(name = "PAYMENTNO", referencedColumnName = "PAYMENTNO")
-    @OneToOne(optional = false)
+    @OneToOne
     private Payment paymentno;
     @JoinColumn(name = "SHIPNO", referencedColumnName = "SHIPNO")
-    @OneToOne(optional = false)
+    @OneToOne
     private Shipping shipno;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "orders")
     private List<Orderdetail> orderdetailList;

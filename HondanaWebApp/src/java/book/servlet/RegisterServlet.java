@@ -44,7 +44,9 @@ public class RegisterServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        
         String fName = request.getParameter("fName");
         String lName = request.getParameter("lName");
         String username = request.getParameter("username");

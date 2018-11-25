@@ -68,13 +68,13 @@ public class Shipping implements Serializable {
     private String trackingno;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "shipno")
     private Payment payment;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "shipno")
+    @OneToOne(mappedBy = "shipno")
     private Orders orders;
     @JoinColumn(name = "ORDERNO", referencedColumnName = "ORDERNO")
     @OneToOne(optional = false)
     private Orders orderno;
     @JoinColumn(name = "PAYMENTNO", referencedColumnName = "PAYMENTNO")
-    @OneToOne(optional = false)
+    @OneToOne
     private Payment paymentno;
 
     public Shipping() {
