@@ -41,6 +41,7 @@
             .s-text13{
                 font-family: Montserrat-Black;
                 color: #333333;
+                background-color: #ffffff; 
 
             }
             .p-b-7 {
@@ -97,23 +98,19 @@
     </head>
     <jsp:include page="Head.jsp"></jsp:include>
         <body>
+
+
             <section class="bgwhite p-t-55 p-b-65">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
                             <div class="leftbar p-r-20 p-r-0-sm">
-                                <!--  -->
+
                                 <h4 class="m-text14 p-b-7">
                                     Categories
                                 </h4>
 
                                 <ul class="p-b-54">
-                                    <li class="p-t-4">
-                                        <a href="AllBook" class="s-text13 active1">
-                                            All
-                                        </a>
-                                    </li>
-
                                     <li class="p-t-4">
                                         <form action="CategoryOfBook" method="post">
                                             <input type="hidden" name="category" value="novel">
@@ -161,38 +158,165 @@
                                 </ul>
 
                             </div>
-                        </div>
 
+
+                            <ul class="p-b-54">
+                                <h4 class="m-text14 p-b-7">
+                                    Genre
+                                </h4>
+
+                                <ul class="p-b-54">
+
+                                    <li class="p-t-4">
+                                        <form action="GenreOfBook" method="post">
+                                            <input type="hidden" name="genre" value="แฟนตาซี">
+                                            <button type="submit" class="s-text13">
+                                                แฟนตาซี
+                                            </button>
+                                        </form>
+                                    </li>
+
+                                    <li class="p-t-4">
+                                        <form action="GenreOfBook" method="post">
+                                            <input type="hidden" name="genre" value="นิยายแปลแฟนตาซี">
+                                            <button type="submit" class="s-text13">
+                                                นิยายแปลแฟนตาซี
+                                            </button>
+                                        </form>
+                                    </li>
+
+                                    <li class="p-t-4">
+                                        <form action="GenreOfBook" method="post">
+                                            <input type="hidden" name="genre" value="บ้านและสวน">
+                                            <button type="submit" class="s-text13">
+                                                บ้านและสวน
+                                            </button>
+                                        </form>
+                                    </li>
+
+                                    <li class="p-t-4">
+                                        <form action="GenreOfBook" method="post">
+                                            <input type="hidden" name="genre" value="วรรณกรรมเยาวชน">
+                                            <button type="submit" class="s-text13">
+                                                วรรณกรรมเยาวชน
+                                            </button>
+                                        </form>
+                                    </li>
+
+                                    <li class="p-t-4">
+                                        <form action="GenreOfBook" method="post">
+                                            <input type="hidden" name="genre" value="รักโรแมนติก">
+                                            <button type="submit" class="s-text13">
+                                                รักโรแมนติก
+                                            </button>
+                                        </form>
+                                    </li>
+
+                                    <li class="p-t-4">
+                                        <form action="GenreOfBook" method="post">
+                                            <input type="hidden" name="genre" value="นิยายโรแมนติก">
+                                            <button type="submit" class="s-text13">
+                                                นิยายโรแมนติก
+                                            </button>
+                                        </form>
+                                    </li>
+                                    <li class="p-t-4">
+                                        <form action="GenreOfBook" method="post">
+                                            <input type="hidden" name="genre" value="นิยายแปลโรแมนติก">
+                                            <button type="submit" class="s-text13">
+                                                นิยายแปลโรแมนติก
+                                            </button>
+                                        </form>
+                                    </li>
+
+                                    <li class="p-t-4">
+                                        <form action="GenreOfBook" method="post">
+                                            <input type="hidden" name="genre" value="นิยายแปลจีน">
+                                            <button type="submit" class="s-text13">
+                                                นิยายแปลจีน
+                                            </button>
+                                        </form>
+                                    </li>
+
+                                    <li class="p-t-4">
+                                        <form action="GenreOfBook" method="post">
+                                            <input type="hidden" name="genre" value="จิตวิทยา">
+                                            <button type="submit" class="s-text13">
+                                                จิตวิทยา
+                                            </button>
+                                        </form>
+                                    </li>
+
+                                    <li class="p-t-4">
+                                        <form action="GenreOfBook" method="post">
+                                            <input type="hidden" name="genre" value="สืบสวนสอบสวน">
+                                            <button type="submit" class="s-text13">
+                                                สืบสวนสอบสวน
+                                            </button>
+                                        </form>
+                                    </li>
+
+                                    <li class="p-t-4">
+                                        <form action="GenreOfBook" method="post">
+                                            <input type="hidden" name="genre" value="นิยายแปลสืบสวนสอบสวน">
+                                            <button type="submit" class="s-text13">
+                                                นิยายแปลสืบสวนสอบสวน
+                                            </button>
+                                        </form>
+                                    </li>
+
+                                    <li class="p-t-4">
+                                        <form action="GenreOfBook" method="post">
+                                            <input type="hidden" name="genre" value="นิยายวาย">
+                                            <button type="submit" class="s-text13">
+                                                นิยายวาย
+                                            </button>
+                                        </form>
+                                    </li>
+
+                                    <li class="p-t-4">
+                                        <form action="GenreOfBook" method="post">
+                                            <input type="hidden" name="genre" value="วรรณกรรมไทย">
+                                            <button type="submit" class="s-text13">
+                                                วรรณกรรมไทย
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+
+                        </div>
                     </div>
-                </div>
-            </section>
-            <div class="card-deck">
-            <c:forEach items="${books}" var="book">
-                <div class="col-3">
-                    <div class="card" >
-                        <center><div class="card-img-top">
-                        <form action="ShowBookDetail" method="post">
-                            <input type="hidden" name="isbn" value="${book.isbn}">
-                            <input type="image" value="submit" name="imgbook" src="img/book/${book.isbn}.jpg" alt="${book.isbn}" style="width: 200px; height: 290px;">
 
-                        </form>
-                            </div></center>
-                        <div class="card-body">
-                            <h5 class="card-title">${book.bookname}</h5>
-                            <p class="card-text">ผู้แต่ง: ${book.author}</p>
-                            <p class="card-text">สำนักพิมพ์: ${book.publisher}</p>
-                            <p class="card-text">ราคา: ${book.price} บาท</p>
-                        </div>
-                        <div class="card-footer">
-                            <form action="AddItemToCart" method="post">
+                </div>
+            </div>
+        </section>
+        <div class="card-deck">
+        <c:forEach items="${books}" var="book">
+            <div class="col-3">
+                <div class="card" >
+                    <center><div class="card-img-top">
+                            <form action="ShowBookDetail" method="post">
                                 <input type="hidden" name="isbn" value="${book.isbn}">
-                                <button class="btn btn-primary"type="submit" >Add to Cart</button>
+                                <input type="image" value="submit" name="imgbook" src="img/book/${book.isbn}.jpg" alt="${book.isbn}" style="width: 200px; height: 290px;">
+
                             </form>
-                        </div>
+                        </div></center>
+                    <div class="card-body">
+                        <h5 class="card-title">${book.bookname}</h5>
+                        <p class="card-text">ผู้แต่ง: ${book.author}</p>
+                        <p class="card-text">สำนักพิมพ์: ${book.publisher}</p>
+                        <p class="card-text">ราคา: ${book.price} บาท</p>
+                    </div>
+                    <div class="card-footer">
+                        <form action="AddItemToCart" method="post">
+                            <input type="hidden" name="isbn" value="${book.isbn}">
+                            <button class="btn btn-primary"type="submit" >Add to Cart</button>
+                        </form>
                     </div>
                 </div>
-            </c:forEach>
-        </div>
-    </body>
-    <jsp:include page="Footer.jsp"></jsp:include>
+            </div>
+        </c:forEach>
+    </div>
+</body>
+<jsp:include page="Footer.jsp"></jsp:include>
 </html>
