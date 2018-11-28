@@ -101,7 +101,13 @@
             <c:forEach items="${showBook}" var="book">
                 <div class="col-3">
                     <div class="card">
-                        <img class="card-img-top" src="img/book/${book.isbn}.jpg" alt="${book.isbn}" style="width: 200px; height: 300px; align-self: center">
+                        <div class="card-img-top">
+                        <center><form action="ShowBookDetail" method="post">
+                                <input type="hidden" name="isbn" value="${book.isbn}">
+                                <input type="image" value="submit" name="imgbook" src="img/book/${book.isbn}.jpg" alt="${book.isbn}" style="width: 200px; height: 290px;">
+
+                            </form></center>
+                        </div>
                         <div class="card-body">
                             <h5 class="card-title">${book.bookname}</h5>
                             <p class="card-text">ผู้แต่ง: ${book.author}</p>
