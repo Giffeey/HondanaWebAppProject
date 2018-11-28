@@ -36,7 +36,7 @@ import javax.transaction.UserTransaction;
  *
  * @author GIFS
  */
-public class ShippingPageServlet extends HttpServlet {
+public class CheckoutPageServlet extends HttpServlet {
 
     @Resource
     UserTransaction utx;
@@ -75,7 +75,7 @@ public class ShippingPageServlet extends HttpServlet {
                     
                     session.setAttribute("LineItem", line);
                     
-                    getServletContext().getRequestDispatcher("/Shipping.jsp").forward(request, response);
+                    getServletContext().getRequestDispatcher("/Checkout.jsp").forward(request, response);
                     return;
                 }
             }

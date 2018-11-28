@@ -24,7 +24,7 @@
                     <h2>Checkout</h2>
 
                 </div>
-                <form class="needs-validation" novalidate action="Shipping" method="post"> 
+                <form class="needs-validation" novalidate action="Checkout" method="post"> 
                     <div class="row">
                         <div class="col-md-4 order-md-2 mb-4">
                             <h4 class="d-flex justify-content-between align-items-center mb-3">
