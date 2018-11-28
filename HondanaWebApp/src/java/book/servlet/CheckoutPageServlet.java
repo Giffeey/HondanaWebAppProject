@@ -62,15 +62,9 @@ public class CheckoutPageServlet extends HttpServlet {
             if (customer != null) {
                 Cart cart = (Cart) session.getAttribute("cart");
                 if(cart != null){
-                    
-                    if(cart.getTotalPrice().compareTo(BigDecimal.valueOf(500)) >=0){
- 
-                        session.setAttribute("amount", cart.getTotalPrice());
-                    }else{
-                        String shipMethod = (String) request.getAttribute("shipMethod");
-                        session.setAttribute("amount", (cart.getTotalPrice().add(BigDecimal.valueOf(50))));
-                    }
-                    
+   
+                    session.setAttribute("amount", cart.getTotalPrice());
+     
                     List<LineItem> line = cart.getLineItems();
                     
                     session.setAttribute("LineItem", line);
