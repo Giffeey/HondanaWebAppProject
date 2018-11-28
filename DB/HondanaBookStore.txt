@@ -1,4 +1,4 @@
-﻿-- DBNAME : HondanaDatabase USER: book PASS: book  DBSource: java:app/HondanaDatabase --
+﻿-- DBNAME : HondanaProjectDB USER: book PASS: book  DBSource: java:app/HondanaProjectDB --
 
 CREATE TABLE book (
     isbn              VARCHAR(13) NOT NULL,
