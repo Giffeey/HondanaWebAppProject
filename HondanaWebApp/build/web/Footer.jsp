@@ -39,9 +39,9 @@
 			<div class="footer-left">
 
 				<p class="footer-links">
-                                    Address: 55/555 <br>
-                                    Tel:  <br>
-                                    E-mail: eiei555@hotmak.com
+                                    Address: 04/021 <br>
+                                    Tel: 015-939-7195 <br>
+                                    E-mail: jompol.jintaphat@hotmak.com
 				</p>
 
 				<p class="coppyright">Copyright &copy; HONDANA 2018</p>

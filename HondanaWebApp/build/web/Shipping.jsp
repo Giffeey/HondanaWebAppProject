@@ -24,7 +24,7 @@
                     <h2>Checkout</h2>
 
                 </div>
-                <form class="needs-validation" novalidate action="Shipping" method="post"> 
+                <form class="needs-validation" novalidate action="Shipping" method="post">
                     <div class="row">
                         <div class="col-md-4 order-md-2 mb-4">
                             <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -140,10 +140,11 @@
                         <hr class="mb-4">
 
                         <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
-                        </form>
                     </div>
+
                 </div>
-                <div class="py-5 text-center"></div>
+            </form>
+            <div class="py-5 text-center"></div>
 
         </div>
 

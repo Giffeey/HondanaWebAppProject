@@ -80,7 +80,7 @@
                         <div class="col-12 p-5" name="sign-in" >
                             <div class="card">
                                 <div class="card-body">
-                                    <h3 class="text-center default-text py-3" style="color:#4D4845"><i class="fa fa-lock"></i> SIGN IN</h3>
+                                    <h3 class="text-center default-text py-3" style="color:#4D4845"><i class="fa fa-lock"></i> SIGN UP</h3>
 
                                     <div class="md-form">
                                         <i class="fa fa-envelope prefix grey-text"></i>

@@ -58,50 +58,14 @@
             </script>
 
 
-
-<!--            <section class="bg0 p-t-23 p-b-140">-->
-<!--                <div class="container">
-                <c:forEach items="${showBook}" var="book">
-                    <div class="row isotope-grid" style="position: relative; height: 800px;">
-                        <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women" style="position: absolute; left: 0%; top: 0px;">
-                  
-                            <div class="block2">
-                                <div class="block2-pic hov-img0">
-
-                                    <a href="ShowBookDetail" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                                        <img class="card-img-top" src="img/book/${book.isbn}.jpg" alt="${book.isbn}" style="width: 200px; height: 270px;">
-                                    </a>
-                                </div>
-
-                                <div class="block2-txt flex-w flex-t p-t-14">
-                                    <div class="card-body">
-                                        <h5 class="card-title">${book.bookname}</h5>
-                                        <p class="card-text">ผู้แต่ง: ${book.author}</p>
-                                        <p class="card-text">สำนักพิมพ์: ${book.publisher}</p>
-                                        <p class="card-text">ราคา: ${book.price} บาท</p>
-                                    </div>
-
-                                    <div class="buttoncart">
-                                        <form action="AddItemToCart" method="post">
-                                            <input type="hidden" name="isbn" value="${book.isbn}">
-                                            <button type="submit" class="btn btn-primary">Add to Cart</button>
-                                        </form>
-                                    </div>
-                                </div>
-                                            
-                                            
-                            </div>
-                        </div>
-                    </div>
-
-                </c:forEach>
-            </div>-->
-                
             <div class="card-deck">
             <c:forEach items="${showBook}" var="book">
                 <div class="col-3 container">
                     <div class="card">
-                        <img class="card-img-top" src="img/book/${book.isbn}.jpg" alt="${book.isbn}" style="width: 200px; height: 300px; align-self: center">
+                        <form action="ShowBookDetail" method="post">
+                            <input type="hidden" name="isbn" value="${book.isbn}">
+                            <input type="image" value="submit" name="imgbook" src="img/book/${book.isbn}.jpg" alt="${book.isbn}" style="width: 200px; height: 290px;">
+                        </form>
                         <div class="card-body">
                             <h5 class="card-title">${book.bookname}</h5>
                             <p class="card-text">ผู้แต่ง: ${book.author}</p>
