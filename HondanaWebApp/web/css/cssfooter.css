@@ -7,7 +7,10 @@ and open the template in the editor.
     Created on : Nov 15, 2018, 4:20:46 PM
     Author     : Admin
 */    
-
+body{
+    font-family:'Athiti', sans-serif;
+    height: 100%;
+}
 .footer-distributed{
     background-color: #4D4845;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
@@ -17,10 +20,7 @@ and open the template in the editor.
     font: normal 16px sans-serif;
     padding: 45px 50px;
     margin-top: 80px;
-    
-    left: 0;
-    bottom: 0;
-
+   
 }
 
 .footer-distributed .footer-left p.coppyright{

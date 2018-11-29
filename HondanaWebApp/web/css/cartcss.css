@@ -8,16 +8,18 @@ and open the template in the editor.
     Author     : Admin
 */
 
-   .wrap-table-shopping-cart {
-  overflow: auto;
+
+.wrap-table-shopping-cart {
+    overflow: auto;
 }
 tr {
     display: table-row;
     vertical-align: inherit;
     border-color: inherit;
+    
 }
 .table-shopping-cart td {
-    font-family: Segoe UI;
+    
     font-size: 16px;
     color: #555555;
     line-height: 1.5;
@@ -25,79 +27,81 @@ tr {
     padding-bottom: 30px;
 }
 .container-table-cart::before {
-  content: '';
-  display: block;
-  position: absolute;
-  width: 1px;
-  height: calc(100% - 51px);
-  background-color: #e6e6e6;
-  top: 51px;
-  left: 0;
+    content: '';
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: calc(100% - 51px);
+    background-color: #e6e6e6;
+    top: 51px;
+    left: 0;
 }
 .container-table-cart::after {
-  content: '';
-  display: block;
-  position: absolute;
-  width: 1px;
-  height: calc(100% - 51px);
-  background-color: #e6e6e6;
-  top: 51px;
-  right: 0;
+    content: '';
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: calc(100% - 51px);
+    background-color: #e6e6e6;
+    top: 51px;
+    right: 0;
 }
 .table-shopping-cart {
-  border-collapse: collapse;
-  width: 100%;
-  min-width: 992px;
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 992px;
 }
 .table-shopping-cart .table-row {
-  border-top: 1px solid #e6e6e6;
-  border-bottom: 1px solid #e6e6e6;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    
 }
 .table-shopping-cart .column-1 {
-  width: 225px;
-  padding-left: 50px;
+    width: 225px;
+    padding-left: 50px;
 }
 .table-shopping-cart .column-2 {
-  width: 330px;
-  padding-right: 30px;
+    width: 330px;
+    padding-right: 30px;
+    
 }
 .table-shopping-cart .column-3 {
-  width: 133px;
-  padding-right: 30px;
+    width: 133px;
+    padding-right: 30px;
 }
 .table-shopping-cart .column-4 {
-  width: 355px;
-  padding-right: 30px;
+    width: 355px;
+    padding-right: 30px;
 }
 .table-shopping-cart .column-5 {
-  padding-right: 30px;
+    padding-right: 30px;
 }
 .table-shopping-cart .table-head th {
-  font-family: Segoe UI;
-  font-size: 13px;
-  color: #555555;
-  line-height: 1.5;
-  text-transform: uppercase;
-  padding-top: 16px;
-  padding-bottom: 16px;
+    font-family: Segoe UI;
+    font-size: 13px;
+    color: #555555;
+    line-height: 1.5;
+    text-transform: uppercase;
+    padding-top: 16px;
+    padding-bottom: 16px;
 }
 .table-shopping-cart td {
-  font-family: Segoe UI;
-  font-size: 16px;
-  color: #555555;
-  line-height: 1.5;
-  padding-top: 37px;
-  padding-bottom: 30px;
+    font-family:'Athiti', sans-serif;
+    font-size: 16px;
+    color: #555555;
+    line-height: 1.5;
+    padding-top: 37px;
+    padding-bottom: 30px;
 }
 .table-shopping-cart .table-row .column-2 {
-  font-size: 15px;
+    font-size: 15px;
 }
 .pos-relative {
     position: relative;
 }
 .bo9 {
-	border: 1px solid #e6e6e6;
-	border-radius: 4px;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
 }
 .w-size18 {
     max-width: 442px;
@@ -124,16 +128,16 @@ tr {
     padding-top: 30px;
 }
 .flex-w {
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-flex-wrap: wrap;
-	-moz-flex-wrap: wrap;
-	-ms-flex-wrap: wrap;
-	-o-flex-wrap: wrap;
-	flex-wrap: wrap;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -o-flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 .size8 {
     width: 50px;
@@ -143,7 +147,7 @@ tr {
     font-size: 12px;
 }
 .m-text18 {
-    font-family: Segoe UI;
+    font-family:'Athiti', sans-serif;
     font-size: 16px;
     color: #666666;
     line-height: 1.2;
@@ -186,7 +190,7 @@ button, input, optgroup, select, textarea {
 }
 button {
     outline: none !important;/*
-*/    border: none;
+    */    border: none;
     background: transparent;
 }
 .bo-rad-23 {
@@ -237,19 +241,19 @@ button {
     font-size: 12px;
 }
 .flex-c-m {
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: flex;
-	justify-content: center;
-	-ms-align-items: center;
-	align-items: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    -ms-align-items: center;
+    align-items: center;
 }
 .bg8 {background-color: #e6e6e6;}
 .eff2:active {
-	background-color: #e65540;
-	color: white;
+    background-color: #e65540;
+    color: white;
 }
 input.num-product {
     -moz-appearance: textfield;
@@ -263,14 +267,14 @@ input.num-product::-webkit-inner-spin-button {
     margin: 0; 
 }
 .trans-0-4 {
-	-webkit-transition: all 0.4s;
+    -webkit-transition: all 0.4s;
     -o-transition: all 0.4s;
     -moz-transition: all 0.4s;
     transition: all 0.4s;
 }
 .hov1:hover {
     background-color: #e65540;
-  	color: white;
+    color: white;
 }
 
 

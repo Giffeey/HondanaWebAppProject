@@ -13,6 +13,7 @@
         <title>HONDANA | CART</title>
         <jsp:include page="Head.jsp"></jsp:include>
             <link href="css/cartcss.css" rel="stylesheet" type="text/css"/>
+            <link href="https://fonts.googleapis.com/css?family=Athiti" rel="stylesheet">
 
         </head>
         <body>
@@ -37,12 +38,13 @@
                                             <img src="img/book/${line.book.isbn}.jpg" alt="${line.book.isbn}" style="width: 150px; height: 220px;">
                                         </div>
                                     </td>
-                                    <td class="column-2">${line.book.bookname}</td>
-                                    <td class="column-3">${line.book.price}</td>
-                                    <td class="column-4">
+                                    <td class="column-2" style="font-family:'Athiti', sans-serif;">${line.book.bookname}</td>
+                                    <td class="column-3" style="font-family:'Athiti', sans-serif;">${line.book.price}</td>
+                                    <td class="column-4" style="font-family:'Athiti', sans-serif;">
                                         <div class="flex-w bo5 of-hidden w-size17">
                                             <form action="ShowCart" method="post"><input type="hidden" name="decrease" value="${line.book.isbn}">
                                                 <button type="submit" class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
+                                                    <img src="img/substract.png" alt="minus" style="width: 20px; height: 20px">
                                                     <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
                                                 </button></form>
 
@@ -50,13 +52,14 @@
 
                                             <form action="ShowCart" method="post"><input type="hidden" name="increase" value="${line.book.isbn}">
                                                 <button type="submit" class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
+                                                    <img src="img/add.png" alt="plus" style="width: 20px; height: 20px">
                                                     <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
                                                 </button></form>
                                         </div>
                                     </td>
 
-                                    <td class="column-5">${line.totalPrice}</td>
-                                    <td class="column-6"><form action="ShowCart" method="post"><input type="hidden" name="remove" value="${line.book.isbn}"><input type="image" src="img/cancel.png" style="width: 50px; height: 50px;" value="submit"></form></td>
+                                    <td class="column-5" style="font-family:'Athiti', sans-serif;">${line.totalPrice}</td>
+                                    <td class="column-6" style="font-family:'Athiti', sans-serif;"><form action="ShowCart" method="post"><input type="hidden" name="remove" value="${line.book.isbn}"><input type="image" src="img/cancel.png" style="width: 50px; height: 50px;" value="submit"></form></td>
                                 </tr>
                             </c:forEach>
                         </table>
@@ -70,17 +73,17 @@
                     </h5>
 
                     <!--  -->
-                    <div class="flex-w flex-sb-m p-b-12">
-                        <span class="s-text18 w-size19 w-full-sm">
+                    <div class="flex-w flex-sb-m p-b-12" >
+                        <span class="s-text18 w-size19 w-full-sm" style="font-family:'Athiti', sans-serif;">
                             Subtotal:
                         </span>
 
-                        <span class="m-text21 w-size20 w-full-sm">
-                            ฿${cart.totalPrice}
+                        <span class="m-text21 w-size20 w-full-sm" style="font-family:'Athiti', sans-serif;">
+                            ${cart.totalPrice}฿
                         </span>
                     </div>
                     <div class="flex-w flex-sb-m p-b-12">
-                        <span class="s-text18 w-size19 w-full-sm">
+                        <span class="s-text18 w-size19 w-full-sm" style="font-family:'Athiti', sans-serif;">
                             Total Book:
                         </span>
                         <span class="m-text21 w-size20 w-full-sm">

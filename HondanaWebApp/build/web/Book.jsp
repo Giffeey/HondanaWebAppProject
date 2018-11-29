@@ -10,10 +10,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>HONDANA | BOOK</title>
+        <link href="https://fonts.googleapis.com/css?family=Athiti" rel="stylesheet">
         <jsp:include page="Head.jsp"></jsp:include>
             <style>
+                body{
+                    font-family:'Athiti', sans-serif;
+                }
                 .button {
-                    background-color: #4CAF50; /* Green */
+                    
                     border: none;
                     color: white;
                     padding: 16px 32px;

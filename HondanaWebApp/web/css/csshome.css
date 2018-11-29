@@ -7,7 +7,9 @@ and open the template in the editor.
     Created on : Nov 20, 2018, 10:59:40 PM
     Author     : Admin
 */
-
+body{
+    font-family:'Athiti', sans-serif;;
+}
 .slide-contaner {
     height: 720px;
     background-size: cover;

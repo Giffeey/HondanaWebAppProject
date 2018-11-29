@@ -11,8 +11,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>HONDANA | HISTORY</title>
+        <link href="https://fonts.googleapis.com/css?family=Athiti" rel="stylesheet">
         <jsp:include page="Head.jsp"></jsp:include>
             <style>
+                body{
+                    font-family:'Athiti', sans-serif;
+                }
                 .header-blue {
                     font-size: 25px;
                     color: #003a70;
