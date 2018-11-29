@@ -45,16 +45,14 @@ public class LogoutServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        HttpSession session = request.getSession(false);
+        HttpSession session = request.getSession();
         if (session != null) {
             Customer customer = (Customer) session.getAttribute("customer");
             if (customer != null) {
                 session.invalidate();
-
-                response.sendRedirect("Home");
-               
             }
         }
+        response.sendRedirect("Home");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

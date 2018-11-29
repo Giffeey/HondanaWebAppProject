@@ -56,7 +56,7 @@ public class CheckoutPageServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        HttpSession session = request.getSession(false);
+        HttpSession session = request.getSession();
         if (session != null) {
             Customer customer = (Customer) session.getAttribute("customer");            
             if (customer != null) {
@@ -75,7 +75,7 @@ public class CheckoutPageServlet extends HttpServlet {
             }
         }
         response.sendRedirect("Home");
-        //getServletContext().getRequestDispatcher("/Home.jsp").forward(request, response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

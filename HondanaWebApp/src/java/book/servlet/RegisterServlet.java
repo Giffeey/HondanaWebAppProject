@@ -49,7 +49,7 @@ public class RegisterServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        if (request.getSession(false).getAttribute("customer") != null) {
+        if (request.getSession().getAttribute("customer") != null) {
             response.sendRedirect("Home");
             return;
         }

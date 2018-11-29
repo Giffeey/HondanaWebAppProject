@@ -54,19 +54,17 @@ public class HistoryDetailServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        HttpSession session = request.getSession(false);
+        HttpSession session = request.getSession();
         if (session != null) {
             Customer customer = (Customer) session.getAttribute("customer");
             if (customer != null) {
                 String orderNo = request.getParameter("orderNo");
-                System.out.println(orderNo);
                 int orderNum = Integer.valueOf(orderNo);
-                
 
                 OrdersJpaController orderCtrl = new OrdersJpaController(utx, emf);
                 Orders order = orderCtrl.findOrders(orderNum);
                 if (order != null) {
-
+                    
                     OrderdetailJpaController orDetailCtrl = new OrderdetailJpaController(utx, emf);
                     List<Orderdetail> orDetail = orDetailCtrl.findOrderdetailEntities();
                     List<Orderdetail> orderDetail = new ArrayList<>();
@@ -79,19 +77,18 @@ public class HistoryDetailServlet extends HttpServlet {
 
                     PaymentJpaController paymentCtrl = new PaymentJpaController(utx, emf);
                     Payment payment = paymentCtrl.findPayment(order.getPayment().getPaymentno());
-
-                    ShippingJpaController shippingCtrl = new ShippingJpaController(utx, emf);
-                    Shipping shipping = shippingCtrl.findShipping(order.getShipping().getShipno());
-
-                    System.out.println(payment);
-                    System.out.println(orderDetail);
-                    System.out.println(shipping);
-                    session.setAttribute("historyDetail", orderDetail);
-                    session.setAttribute("paymentDetail", payment);
-                    session.setAttribute("shippingDetail", shipping);
-                    getServletContext().getRequestDispatcher("/HistoryDetail.jsp").forward(request, response);
-                    return;
-                }
+                    
+                        ShippingJpaController shippingCtrl = new ShippingJpaController(utx, emf);
+                        Shipping shipping = shippingCtrl.findShipping(order.getShipno().getShipno());
+                    
+                            session.setAttribute("historyDetail", orderDetail);
+                            session.setAttribute("paymentDetail", payment);
+                            session.setAttribute("shippingDetail", shipping);
+                            getServletContext().getRequestDispatcher("/HistoryDetail.jsp").forward(request, response);
+                            return;
+                        }
+                    
+                
             }
         }
         response.sendRedirect("Home");
