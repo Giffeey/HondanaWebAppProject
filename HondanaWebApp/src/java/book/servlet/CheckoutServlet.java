@@ -140,7 +140,7 @@ public class CheckoutServlet extends HttpServlet {
                         shipping.setShipno(shipCtrl.getShippingCount() + 1);
                         shipping.setShipaddress(address);
                         shipping.setShipmethod(method);
-                        shipping.setShipdate(new Date());
+                        shipping.setShipdate(null);
                         shipping.setOrderno(orders);
                         shipping.setOrders(orders);
                         shipping.setShipprice(BigDecimal.valueOf(0.00));
@@ -193,15 +193,16 @@ public class CheckoutServlet extends HttpServlet {
                         } catch (Exception ex) {
                             Logger.getLogger(CheckoutServlet.class.getName()).log(Level.SEVERE, null, ex);
                         }
-        
-                        response.sendRedirect("History");
+                        session.setAttribute("cart", null);
+                        request.setAttribute("orderNo", orders.getOrderno());
+                        response.sendRedirect("Home");
                         return;
                     }
                 }
             }
         }
-
-        getServletContext().getRequestDispatcher("/index.html").forward(request, response);
+        response.sendRedirect("Home");
+        //getServletContext().getRequestDispatcher("/index.html").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

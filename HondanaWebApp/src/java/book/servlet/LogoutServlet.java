@@ -51,15 +51,10 @@ public class LogoutServlet extends HttpServlet {
             if (customer != null) {
                 session.invalidate();
 
-                BookJpaController bookCtrl = new BookJpaController(utx, emf);
-                List<Book> book = bookCtrl.findBookEntities();
-                request.getSession(true).setAttribute("showBook", book);
-
                 response.sendRedirect("Home");
-                return;
+               
             }
         }
-        getServletContext().getRequestDispatcher("/Home.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

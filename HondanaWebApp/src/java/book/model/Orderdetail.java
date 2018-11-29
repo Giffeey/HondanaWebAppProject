@@ -7,6 +7,7 @@ package book.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -108,7 +109,7 @@ public class Orderdetail implements Serializable {
     public void setOrders(Orders orders) {
         this.orders = orders;
     }
-
+            
     @Override
     public int hashCode() {
         int hash = 0;

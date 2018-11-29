@@ -59,7 +59,7 @@ public final class HistoryDetail_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("<html>\r\n");
       out.write("    <head>\r\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
-      out.write("        <title>JSP Page</title>\r\n");
+      out.write("        <title>HONDANA | HISTORY</title>\r\n");
       out.write("        ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "Head.jsp", out, false);
       out.write("\r\n");

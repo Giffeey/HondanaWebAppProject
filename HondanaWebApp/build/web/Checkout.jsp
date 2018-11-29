@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Hondana Bookstore | Checkout</title>
+        <title>HONDANA | CHECKOUT</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <link href="css/form-validation.css" rel="stylesheet">
@@ -24,11 +24,7 @@
                     <h2>Checkout</h2>
 
                 </div>
-<<<<<<< HEAD:HondanaWebApp/web/Shipping.jsp
-                <form class="needs-validation" novalidate action="Shipping" method="post">
-=======
                 <form class="needs-validation" novalidate action="Checkout" method="post"> 
->>>>>>> 6868a33d04a875fc764646c341d45b1e938077d9:HondanaWebApp/web/Checkout.jsp
                     <div class="row">
                         <div class="col-md-4 order-md-2 mb-4">
                             <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -47,8 +43,8 @@
                             </c:forEach>
                             <li class="list-group-item d-flex justify-content-between bg-light">
                                 <div class="text-success">
-                                    <h6 class="my-0">ค่าขนส่ง</h6>
-                                    <small>ฟรี</small>
+                                    <h6 class="my-0">Shipping Fee</h6>
+                                    <small>Free</small>
 
                                 </div>
                                 <span class="text-success">
@@ -56,7 +52,7 @@
                                 </span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between">
-                                <span>รวม</span>
+                                <span>Total</span>
                                 <strong><input type="hidden" name="amount" value="${cart.totalPrice}">${cart.totalPrice}฿</strong>
                             </li>
                         </ul>

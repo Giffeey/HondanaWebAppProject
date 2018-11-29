@@ -7,6 +7,8 @@ package book.servlet;
 
 import book.controller.OrderdetailJpaController;
 import book.controller.OrdersJpaController;
+import book.controller.PaymentJpaController;
+import book.controller.ShippingJpaController;
 import book.model.Customer;
 import book.model.Orderdetail;
 import book.model.OrderdetailPK;
@@ -51,33 +53,49 @@ public class HistoryDetailServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         HttpSession session = request.getSession(false);
         if (session != null) {
             Customer customer = (Customer) session.getAttribute("customer");
             if (customer != null) {
                 String orderNo = request.getParameter("orderNo");
+                System.out.println(orderNo);
                 int orderNum = Integer.valueOf(orderNo);
+                
 
                 OrdersJpaController orderCtrl = new OrdersJpaController(utx, emf);
                 Orders order = orderCtrl.findOrders(orderNum);
-                
-                OrderdetailJpaController orDetailCtrl = new OrderdetailJpaController(utx, emf);
-                List<Orderdetail> orDetail = orDetailCtrl.findOrderdetailEntities();
-                List<Orderdetail> orderDetail = new ArrayList<>();
+                if (order != null) {
 
-                for (Orderdetail orderDe : orDetail) {
-                    if (orderDe.getOrderdetailPK().getOrderno() == orderNum) {
-                        orderDetail.add(orderDe);
+                    OrderdetailJpaController orDetailCtrl = new OrderdetailJpaController(utx, emf);
+                    List<Orderdetail> orDetail = orDetailCtrl.findOrderdetailEntities();
+                    List<Orderdetail> orderDetail = new ArrayList<>();
+
+                    for (Orderdetail orderDe : orDetail) {
+                        if (orderDe.getOrderdetailPK().getOrderno() == orderNum) {
+                            orderDetail.add(orderDe);
+                        }
                     }
-                }
 
-                session.setAttribute("historyDetail", orderDetail);
-                session.setAttribute("paymentDetail", order.getPayment());
-                session.setAttribute("shippingDetail", order.getShipping());
-                getServletContext().getRequestDispatcher("/HistoryDetail.jsp").forward(request, response);
+                    PaymentJpaController paymentCtrl = new PaymentJpaController(utx, emf);
+                    Payment payment = paymentCtrl.findPayment(order.getPayment().getPaymentno());
+
+                    ShippingJpaController shippingCtrl = new ShippingJpaController(utx, emf);
+                    Shipping shipping = shippingCtrl.findShipping(order.getShipping().getShipno());
+
+                    System.out.println(payment);
+                    System.out.println(orderDetail);
+                    System.out.println(shipping);
+                    session.setAttribute("historyDetail", orderDetail);
+                    session.setAttribute("paymentDetail", payment);
+                    session.setAttribute("shippingDetail", shipping);
+                    getServletContext().getRequestDispatcher("/HistoryDetail.jsp").forward(request, response);
+                    return;
+                }
             }
         }
-        getServletContext().getRequestDispatcher("/index.html").forward(request, response);
+        response.sendRedirect("Home");
+
     }
 
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
