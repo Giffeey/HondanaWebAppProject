@@ -22,10 +22,10 @@
                     margin-right: -10px;
                     margin-left: -10px;
                 }
-                /*                .row .col-md-6 .col-sm-12{
-                                    margin-left:50%;
-                                    margin-top: 25%;
-                                }*/
+                .row .col-md-6 .col-sm-12{
+                    margin-left:50%;
+                    margin-top: 25%;
+                }
             </style>
         </head>
         <body>
@@ -49,7 +49,7 @@
                         <div class="row">
                             <div class="col-md-12 col-xs-12">
                                 <div class="header-blue">สถานะ : 
-                                    <span>${historyDetail.order.status}</span>
+                                    <span>${historyDetail.status}</span>
                                 </div>
                             </div>
                             <div class="col-md-12 col-xs-12">
@@ -59,7 +59,7 @@
                             </div>
                             <div class="col-md-12 col-xs-12">
                                 <div class="">วันที่จัดส่ง : 
-                                    <span>${historyDetail.order.orderdate}</span>
+                                    <span>${historyDetail.orderdate}</span>
                                 </div>
                             </div>
                         </div>

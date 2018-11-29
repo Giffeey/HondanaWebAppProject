@@ -109,7 +109,7 @@ public final class HistoryDetail_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                            <div class=\"col-md-12 col-xs-12\">\r\n");
       out.write("                                <div class=\"header-blue\">สถานะ : \r\n");
       out.write("                                    <span>");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${historyDetail.order.status}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${historyDetail.status}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("</span>\r\n");
       out.write("                                </div>\r\n");
       out.write("                            </div>\r\n");
@@ -121,7 +121,7 @@ public final class HistoryDetail_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                            <div class=\"col-md-12 col-xs-12\">\r\n");
       out.write("                                <div class=\"\">วันที่จัดส่ง : \r\n");
       out.write("                                    <span>");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${historyDetail.order.orderdate}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${historyDetail.orderdate}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("</span>\r\n");
       out.write("                                </div>\r\n");
       out.write("                            </div>\r\n");
