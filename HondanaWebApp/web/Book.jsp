@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>HONDANA | BOOK</title>
         <jsp:include page="Head.jsp"></jsp:include>
     </head>
     <body>

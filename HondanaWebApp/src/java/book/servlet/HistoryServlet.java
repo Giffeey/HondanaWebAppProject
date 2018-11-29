@@ -63,7 +63,8 @@ public class HistoryServlet extends HttpServlet {
                 getServletContext().getRequestDispatcher("/History.jsp").forward(request, response);
             }
         }
-        getServletContext().getRequestDispatcher("/index.html").forward(request, response);
+        response.sendRedirect("Home");
+        //getServletContext().getRequestDispatcher("/index.html").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

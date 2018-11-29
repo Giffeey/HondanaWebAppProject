@@ -9,6 +9,8 @@ import book.controller.CustomerJpaController;
 import book.model.Customer;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import javax.annotation.Resource;
 import javax.persistence.EntityManagerFactory;
@@ -52,10 +54,9 @@ public class LoginServlet extends HttpServlet {
 
         String name = request.getParameter("username");
         String password = request.getParameter("password");
-
         if (name != null && name.trim().length() > 0 && password != null && password.trim().length() > 0) {
             CustomerJpaController cpj = new CustomerJpaController(utx, emf);
-            //Customer cumodel = cpj.findCustomerusername(name);
+            
             List<Customer> customer = cpj.findCustomerEntities();
             Customer cumodel = new Customer();
             for (Customer cust : customer) {
@@ -63,18 +64,37 @@ public class LoginServlet extends HttpServlet {
                     cumodel = cust;
                 }
             }
-
+            password = cryptWithMD5(password).substring(0,24);
+            
             if (cumodel.getPassword().equals(password)) {
                 session.setAttribute("customer", cumodel);
                 response.sendRedirect("Home");
                 return;
             } else {
+                request.setAttribute("msg", "INVALID USERNAME OR PASSWORD");
                 getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
             }
 
         }
         getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
 
+    }
+
+    public static String cryptWithMD5(String pass) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] passBytes = pass.getBytes();
+            md.reset();
+            byte[] digested = md.digest(passBytes);
+            StringBuffer sb = new StringBuffer();
+            for (int i = 0; i < digested.length; i++) {
+                sb.append(Integer.toHexString(0xff & digested[i]));
+            }
+            return sb.toString();
+        } catch (NoSuchAlgorithmException ex) {
+            System.out.println(ex);
+        }
+        return null;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

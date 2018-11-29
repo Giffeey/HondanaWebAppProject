@@ -35,13 +35,14 @@ public class UserInfoServlet extends HttpServlet {
         HttpSession session = request.getSession(false);
         if(session != null){
             Customer customer = (Customer) session.getAttribute("customer");
-            System.out.println(customer);
+            
             if(customer!=null){
                 getServletContext().getRequestDispatcher("/UserInfo.jsp").forward(request, response);
                 return;
             }
         }
-        getServletContext().getRequestDispatcher("/index.html").forward(request, response);
+        response.sendRedirect("Login");
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>HONDANA | CART</title>
         <jsp:include page="Head.jsp"></jsp:include>
             <link href="css/cartcss.css" rel="stylesheet" type="text/css"/>
 
@@ -28,13 +28,13 @@
                                     <th class="column-3">Price</th>
                                     <th class="column-4 p-l-70">Quantity</th>
                                     <th class="column-5">Total</th>
-                                    <th class="column-6">Remove Book</th>
+                                    <th class="column-6"></th>
                                 </tr>
                             <c:forEach items="${cart.lineItems}" var="line" varStatus="vs">
                                 <tr class="table-row">
                                     <td class="column-1 col-2">
                                         <div class="cart-img-product b-rad-4 o-f-hidden">
-                                            <img src="img/book/${line.book.isbn}.jpg" alt="${line.book.isbn}" style="width: 150px; height: 200px;">
+                                            <img src="img/book/${line.book.isbn}.jpg" alt="${line.book.isbn}" style="width: 150px; height: 220px;">
                                         </div>
                                     </td>
                                     <td class="column-2">${line.book.bookname}</td>
@@ -46,7 +46,7 @@
                                                     <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
                                                 </button></form>
 
-                                            <input class="size8 m-text18 t-center num-product" type="number" name="num-product1" value="${line.quantity}">
+                                            <input class="size8 m-text18 t-center num-product" type="number" name="num-product1" value="${line.quantity}" readonly>
 
                                             <form action="ShowCart" method="post"><input type="hidden" name="increase" value="${line.book.isbn}">
                                                 <button type="submit" class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
@@ -54,9 +54,9 @@
                                                 </button></form>
                                         </div>
                                     </td>
-                                    
+
                                     <td class="column-5">${line.totalPrice}</td>
-                                    <td class="column-6"><form action="ShowCart" method="post"><button type="submit" class="btn-light"><input type="hidden" name="remove" value="${line.book.isbn}">Remove Book</button></form></td>
+                                    <td class="column-6"><form action="ShowCart" method="post"><input type="hidden" name="remove" value="${line.book.isbn}"><input type="image" src="img/cancel.png" style="width: 50px; height: 50px;" value="submit"></form></td>
                                 </tr>
                             </c:forEach>
                         </table>
@@ -99,7 +99,8 @@
                 </div>
             </div>
         </section> 
-
+        <div><br></div>
+        
     </body>
     <jsp:include page="Footer.jsp"></jsp:include>   
 </html>

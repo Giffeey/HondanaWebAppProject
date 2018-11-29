@@ -29,21 +29,23 @@
                     <div class="panel">
                         <h2>SIGN IN</h2>
                     </div><br>
-                    <form id="Login">
+                    <form action="Login" method="post">
 
                         <div class="form-group">
-                            <input type="text" name="username" class="form-control" id="inputEmail" placeholder="Username">
+                            <input type="text" name="username" class="form-control" id="inputEmail" placeholder="Username" required>
 
                         </div>
 
                         <div class="form-group">
 
-                            <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
+                            <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password" required>
 
                         </div>
                         <button type="submit" class="btn btn-primary">SIGN IN</button>
                     </form> 
+                    <p style="color: red">${msg}</p>
                 </div>
+                
             </div>
         </div>
     </body>
