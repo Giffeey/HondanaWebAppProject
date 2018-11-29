@@ -32,7 +32,7 @@ public class UserInfoServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        HttpSession session = request.getSession(false);
+        HttpSession session = request.getSession();
         if(session != null){
             Customer customer = (Customer) session.getAttribute("customer");
             

@@ -45,13 +45,14 @@ public class LoginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
+       
 
-        if (session.getAttribute("account") != null) {
+        if (request.getSession().getAttribute("account") != null) {
             response.sendRedirect("Home");
             return;
         }
-
+        
+        
         String name = request.getParameter("username");
         String password = request.getParameter("password");
         if (name != null && name.trim().length() > 0 && password != null && password.trim().length() > 0) {
@@ -67,7 +68,7 @@ public class LoginServlet extends HttpServlet {
             password = cryptWithMD5(password).substring(0,24);
             
             if (cumodel.getPassword().equals(password)) {
-                session.setAttribute("customer", cumodel);
+                request.getSession().setAttribute("customer", cumodel);
                 response.sendRedirect("Home");
                 return;
             } else {
