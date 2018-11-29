@@ -4,6 +4,7 @@
     Author     : GIFS
 --%>
 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -39,7 +40,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-6 text-align-right"> 
-                    <div>วันที่สั่งซื้อ : <span>${paymentDetail.orderno.orderdate}</span></div>
+                    <div>วันที่สั่งซื้อ : <span><fmt:formatDate value="${paymentDetail.orderno.orderdate}" pattern="dd/MM/yyyy"/></span></div>
                 </div>
             </div>
             <hr>

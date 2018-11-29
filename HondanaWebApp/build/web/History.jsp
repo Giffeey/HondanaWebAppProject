@@ -4,6 +4,7 @@
     Author     : GIFS
 --%>
 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -76,7 +77,7 @@
                 <c:forEach items="${orderHistory}" var="order" >
                     <tr>
                         <th scope="row">${order.orderno}</th>
-                        <td>${order.orderdate}</td>
+                        <td><fmt:formatDate value="${order.orderdate}" pattern="dd/MM/yyyy"/></td>
                         <td>${order.totalbook}</td>
                         <td>${order.paymentno.amount}</td>
                         <td>${order.status}</td>
