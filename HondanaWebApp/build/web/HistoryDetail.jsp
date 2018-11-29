@@ -61,7 +61,7 @@
                             </div>
                             <div class="col-md-12 col-xs-12">
                                 <div class="">วันที่จัดส่ง : 
-                                    <span><fmt:formatDate value="${shippingDetail.shipdate}" pattern="dd/MM/yyyy"/></span>
+                                    <span><fmt:formatDate value="${shippingDetail.shipdate} pattern="dd/MM/yyyy"/></span>
 
                                 </div>
                             </div>
