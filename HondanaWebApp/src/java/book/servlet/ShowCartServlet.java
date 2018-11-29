@@ -52,6 +52,7 @@ public class ShowCartServlet extends HttpServlet {
                 Cart cart = (Cart) session.getAttribute("cart");
 
                 if (cart != null) {
+                    if(cart.getTotalQuantity() != 0){
                     String increase = request.getParameter("increase");
                     String decrease = request.getParameter("decrease");
                     String remove = request.getParameter("remove");
@@ -88,6 +89,7 @@ public class ShowCartServlet extends HttpServlet {
                     session.setAttribute("cart", cart);
                     getServletContext().getRequestDispatcher("/ShowItemInCart.jsp").forward(request, response);
                     return;
+                }
                 }
               
                 request.setAttribute("msg", "ไม่มีสินค้าในตะกร้า");
