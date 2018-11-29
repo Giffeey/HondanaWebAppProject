@@ -17,7 +17,6 @@ body{
     background-position: center center;
 }
 .button {
-    background-color: #4CAF50; /* Green */
     border: none;
     color: white;
     padding: 16px 32px;
@@ -50,6 +49,16 @@ body{
 }
 
 .button2:hover {
+    background-color: #EF8A62;
+    color: white;
+}
+.button3 {
+    background-color: #FC9C72;
+    color: white; 
+    
+}
+
+.button3:hover {
     background-color: #EF8A62;
     color: white;
 }

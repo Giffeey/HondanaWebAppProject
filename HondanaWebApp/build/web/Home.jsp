@@ -81,7 +81,7 @@
                         <div class="card-footer">
                             <form action="AddItemToCart" method="post">
                                 <input type="hidden" name="isbn" value="${book.isbn}">
-                                <button type="submit" class="btn btn-primary">Add to Cart</button>
+                                <button type="submit" class="button button3" style="margin-left: 50px;">Add to Cart</button>
                             </form>
                         </div>
                     </div>

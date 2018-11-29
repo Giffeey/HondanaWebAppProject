@@ -60,10 +60,11 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <head>\r\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
       out.write("        <title>HONDANA | HOME</title>\r\n");
+      out.write("        <link href=\"css/csshome.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n");
+      out.write("        <link href=\"https://fonts.googleapis.com/css?family=Athiti\" rel=\"stylesheet\">\r\n");
       out.write("        ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "Head.jsp", out, false);
       out.write("\r\n");
-      out.write("            <link href=\"css/csshome.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n");
       out.write("        </head>\r\n");
       out.write("        <body>          \r\n");
       out.write("            <div class=\"slide-contaner\" style=\"background-image: url(img/test2.jpg)\">\r\n");
