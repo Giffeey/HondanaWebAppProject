@@ -59,36 +59,44 @@ public class HistoryDetailServlet extends HttpServlet {
             Customer customer = (Customer) session.getAttribute("customer");
             if (customer != null) {
                 String orderNo = request.getParameter("orderNo");
-                int orderNum = Integer.valueOf(orderNo);
 
-                OrdersJpaController orderCtrl = new OrdersJpaController(utx, emf);
-                Orders order = orderCtrl.findOrders(orderNum);
-                if (order != null) {
-                    
-                    OrderdetailJpaController orDetailCtrl = new OrderdetailJpaController(utx, emf);
-                    List<Orderdetail> orDetail = orDetailCtrl.findOrderdetailEntities();
-                    List<Orderdetail> orderDetail = new ArrayList<>();
-
-                    for (Orderdetail orderDe : orDetail) {
-                        if (orderDe.getOrderdetailPK().getOrderno() == orderNum) {
-                            orderDetail.add(orderDe);
-                        }
+                String orderSession = (String) request.getAttribute("orderNo");
+                if (orderNo != null || orderSession != null) {
+                    int orderNum = 0;
+                    if (orderSession == null) {
+                        orderNum = Integer.valueOf(orderNo);
+                    }else if(orderNo == null){
+                        orderNum = Integer.valueOf(orderSession);
                     }
-
-                    PaymentJpaController paymentCtrl = new PaymentJpaController(utx, emf);
-                    Payment payment = paymentCtrl.findPayment(order.getPayment().getPaymentno());
                     
+                    OrdersJpaController orderCtrl = new OrdersJpaController(utx, emf);
+                    Orders order = orderCtrl.findOrders(orderNum);
+                    if (order != null) {
+
+                        OrderdetailJpaController orDetailCtrl = new OrderdetailJpaController(utx, emf);
+                        List<Orderdetail> orDetail = orDetailCtrl.findOrderdetailEntities();
+                        List<Orderdetail> orderDetail = new ArrayList<>();
+
+                        for (Orderdetail orderDe : orDetail) {
+                            if (orderDe.getOrderdetailPK().getOrderno() == orderNum) {
+                                orderDetail.add(orderDe);
+                            }
+                        }
+
+                        PaymentJpaController paymentCtrl = new PaymentJpaController(utx, emf);
+                        Payment payment = paymentCtrl.findPayment(order.getPayment().getPaymentno());
+
                         ShippingJpaController shippingCtrl = new ShippingJpaController(utx, emf);
                         Shipping shipping = shippingCtrl.findShipping(order.getShipno().getShipno());
-                    
-                            session.setAttribute("historyDetail", orderDetail);
-                            session.setAttribute("paymentDetail", payment);
-                            session.setAttribute("shippingDetail", shipping);
-                            getServletContext().getRequestDispatcher("/HistoryDetail.jsp").forward(request, response);
-                            return;
-                        }
-                    
-                
+
+                        session.setAttribute("orderNo", orderNo);
+                        session.setAttribute("historyDetail", orderDetail);
+                        session.setAttribute("paymentDetail", payment);
+                        session.setAttribute("shippingDetail", shipping);
+                        getServletContext().getRequestDispatcher("/HistoryDetail.jsp").forward(request, response);
+                        return;
+                    }
+                }
             }
         }
         response.sendRedirect("Home");
