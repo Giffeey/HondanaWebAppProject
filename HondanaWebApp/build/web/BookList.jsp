@@ -143,9 +143,9 @@
             }
 
             .button5{
-                
+
                 background-color: #f9f9f9;
-                min-width: 25px;
+
 
             }
             .dropdown2 {
@@ -157,18 +157,23 @@
                 display: none;
                 position: absolute;
                 background-color: #f9f9f9;
-                min-width: 250px;
-                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-                z-index: 1;
+                min-width: 768px ;
+                min-height: 250px;  
+                z-index: 1;    
             }
-
+            .column {
+                float: left;
+                width: 33.33%;
+                padding: 10px;
+                height: 300px; /* Should be removed. Only for demonstration */
+            }
             .dropdown2-content .button5 {
                 color: black;
-                padding: 16px;
                 text-decoration: none;
                 display: block;
                 font-size: 16px;
                 border: none;
+                padding: 12px 16px;
             }
 
             .dropdown2-content .button5:hover {background-color: #f1f1f1}
@@ -176,6 +181,7 @@
             .dropdown2:hover .dropdown2-content {
                 display: block;
             }
+            
         </style>
 
     </head>
@@ -188,7 +194,7 @@
             <div class="container" style="margin-top: 2%">
                 <div class="row">
 
-                    <div class="col-sm-4">
+                    <div class="col-sm-2">
                         <div class="dropdown">
                             <button class="button button3">
                                 CATEGORIES
@@ -232,19 +238,99 @@
                     </div>
 
 
-                    <div class="col-sm-8">
+                    <div class="col-sm-4">
 
                         <div class="dropdown2">
                             <button class="button button3">
                                 GENRE
                             </button>
                             <div class="dropdown2-content">
-                                <form action="GenreOfBook" method="post">
-                                    <input type="hidden" name="genre" value="แฟนตาซี">
-                                    <button type="submit" class="button button5">
-                                        แฟนตาซี
-                                    </button>
-                                </form>
+                                <div class="column">
+                                    <form action="GenreOfBook" method="post">
+                                        <input type="hidden" name="genre" value="แฟนตาซี">
+                                        <button type="submit" class="button button5">
+                                            แฟนตาซี
+                                        </button>
+                                    </form>
+                                    <form action="GenreOfBook" method="post">
+                                        <input type="hidden" name="genre" value="นิยายแปลแฟนตาซี">
+                                        <button type="submit" class="button button5">
+                                            นิยายแปลแฟนตาซี
+                                        </button>
+                                    </form>
+                                    <form action="GenreOfBook" method="post">
+                                        <input type="hidden" name="genre" value="บ้านและสวน">
+                                        <button type="submit" class="button button5">
+                                            บ้านและสวน
+                                        </button>
+                                    </form>
+                                    <form action="GenreOfBook" method="post">
+                                        <input type="hidden" name="genre" value="วรรณกรรมเยาวชน">
+                                        <button type="submit" class="button button5">
+                                            วรรณกรรมเยาวชน
+                                        </button>
+                                    </form>
+                                    <form action="GenreOfBook" method="post">
+                                        <input type="hidden" name="genre" value="รักโรแมนติก">
+                                        <button type="submit" class="button button5">
+                                            รักโรแมนติก
+                                        </button>
+                                    </form>
+
+                                </div>
+                                <div class="column">
+                                    <form action="GenreOfBook" method="post">
+                                        <input type="hidden" name="genre" value="นิยายโรแมนติก">
+                                        <button type="submit" class="button button5">
+                                            นิยายโรแมนติก
+                                        </button>
+                                    </form>
+                                    <form action="GenreOfBook" method="post">
+                                        <input type="hidden" name="genre" value="นิยายแปลโรแมนติก">
+                                        <button type="submit" class="button button5">
+                                            นิยายแปลโรแมนติก
+                                        </button>
+                                    </form>
+                                    <form action="GenreOfBook" method="post">
+                                        <input type="hidden" name="genre" value="นิยายแปลจีน">
+                                        <button type="submit" class="button button5">
+                                            นิยายแปลจีน
+                                        </button>
+                                    </form>
+                                    <form action="GenreOfBook" method="post">
+                                        <input type="hidden" name="genre" value="จิตวิทยา">
+                                        <button type="submit" class="button button5">
+                                            จิตวิทยา
+                                        </button>
+                                    </form>
+                                    <form action="GenreOfBook" method="post">
+                                        <input type="hidden" name="genre" value="สืบสวนสอบสวน">
+                                        <button type="submit" class="button button5">
+                                            สืบสวนสอบสวน
+                                        </button>
+                                    </form>
+
+                                </div>
+                                <div class="column">
+                                    <form action="GenreOfBook" method="post">
+                                        <input type="hidden" name="genre" value="นิยายแปลสืบสวนสอบสวน">
+                                        <button type="submit" class="button button5">
+                                            นิยายแปลสืบสวนสอบสวน
+                                        </button>
+                                    </form>
+                                    <form action="GenreOfBook" method="post">
+                                        <input type="hidden" name="genre" value="นิยายวาย">
+                                        <button type="submit" class="button button5">
+                                            นิยายวาย
+                                        </button>
+                                    </form>
+                                    <form action="GenreOfBook" method="post">
+                                        <input type="hidden" name="genre" value="วรรณกรรมไทย">
+                                        <button type="submit" class="button button5">
+                                            วรรณกรรมไทย
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                         <!--                        <h4 class="m-text14 p-b-7">
@@ -372,34 +458,34 @@
                     </div>
 
                 </div>
-        </div>
-                <div class="card-deck">
-                <c:forEach items="${books}" var="book">
-                    <div class="col-3">
-                        <div class="card" >
-                            <center><div class="card-img-top">
-                                    <form action="ShowBookDetail" method="post">
-                                        <input type="hidden" name="isbn" value="${book.isbn}">
-                                        <input type="image" value="submit" name="imgbook" src="img/book/${book.isbn}.jpg" alt="${book.isbn}" style="width: 200px; height: 290px;">
-
-                                    </form>
-                                </div></center>
-                            <div class="card-body">
-                                <h5 class="card-title">${book.bookname}</h5>
-                                <p class="card-text">ผู้แต่ง: ${book.author}</p>
-                                <p class="card-text">สำนักพิมพ์: ${book.publisher}</p>
-                                <p class="card-text">ราคา: ${book.price} บาท</p>
-                            </div>
-                            <div class="card-footer">
-                                <form action="AddItemToCart" method="post">
+            </div>
+            <div class="card-deck">
+            <c:forEach items="${books}" var="book">
+                <div class="col-3">
+                    <div class="card" >
+                        <center><div class="card-img-top">
+                                <form action="ShowBookDetail" method="post">
                                     <input type="hidden" name="isbn" value="${book.isbn}">
-                                    <button class="btn btn-primary"type="submit" >Add to Cart</button>
+                                    <input type="image" value="submit" name="imgbook" src="img/book/${book.isbn}.jpg" alt="${book.isbn}" style="width: 200px; height: 290px;">
+
                                 </form>
-                            </div>
+                            </div></center>
+                        <div class="card-body">
+                            <h5 class="card-title">${book.bookname}</h5>
+                            <p class="card-text">ผู้แต่ง: ${book.author}</p>
+                            <p class="card-text">สำนักพิมพ์: ${book.publisher}</p>
+                            <p class="card-text">ราคา: ${book.price} บาท</p>
+                        </div>
+                        <div class="card-footer">
+                            <form action="AddItemToCart" method="post">
+                                <input type="hidden" name="isbn" value="${book.isbn}">
+                                <button class="btn btn-primary"type="submit" >Add to Cart</button>
+                            </form>
                         </div>
                     </div>
-                </c:forEach>
-            </div>
+                </div>
+            </c:forEach>
+        </div>
 
 
 
