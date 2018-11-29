@@ -68,12 +68,12 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <body>          \r\n");
       out.write("            <div class=\"slide-contaner\" style=\"background-image: url(img/test2.jpg)\">\r\n");
       out.write("                <a href=\"AllBook\">\r\n");
-      out.write("                <button class=\"button button1\">SHOP NOW</button>\r\n");
+      out.write("                    <button class=\"button button1\">SHOP NOW</button>\r\n");
       out.write("                </a>\r\n");
       out.write("            </div>\r\n");
       out.write("            <div class=\"slide-contaner\" style=\"background-image: url(img/test3.jpg)\">\r\n");
       out.write("                <a href=\"AllBook\">\r\n");
-      out.write("                <button class=\"button button2\">SHOP NOW</button>\r\n");
+      out.write("                    <button class=\"button button2\">SHOP NOW</button>\r\n");
       out.write("                </a>\r\n");
       out.write("            </div>\r\n");
       out.write("            <div class=\"slide-contaner\" style=\"background-image: url(img/test.jpg)\">\r\n");
@@ -115,8 +115,8 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
         return;
       out.write("\r\n");
       out.write("        </div>\r\n");
-      out.write("                \r\n");
-      out.write("<!--        </section>-->\r\n");
+      out.write("\r\n");
+      out.write("        <!--        </section>-->\r\n");
       out.write("\r\n");
       out.write("    </body>\r\n");
       out.write("    ");
@@ -152,18 +152,24 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\r\n");
-          out.write("                <div class=\"col-3 container\">\r\n");
+          out.write("                <div class=\"col-3\">\r\n");
           out.write("                    <div class=\"card\">\r\n");
-          out.write("                        <form action=\"ShowBookDetail\" method=\"post\">\r\n");
-          out.write("                            <input type=\"hidden\" name=\"isbn\" value=\"");
+          out.write("\r\n");
+          out.write(" \r\n");
+          out.write("                        <div class=\"card-img-top\">\r\n");
+          out.write("                            <center><form action=\"ShowBookDetail\" method=\"post\">\r\n");
+          out.write("                                    <input type=\"hidden\" name=\"isbn\" value=\"");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${book.isbn}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\">\r\n");
-          out.write("                            <input type=\"image\" value=\"submit\" name=\"imgbook\" src=\"img/book/");
+          out.write("                                    <input type=\"image\" value=\"submit\" name=\"imgbook\" src=\"img/book/");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${book.isbn}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write(".jpg\" alt=\"");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${book.isbn}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\" style=\"width: 200px; height: 290px;\">\r\n");
-          out.write("                        </form>\r\n");
+          out.write("\r\n");
+          out.write("                                </form></center>\r\n");
+          out.write("                        </div>\r\n");
+          out.write("\r\n");
           out.write("                        <div class=\"card-body\">\r\n");
           out.write("                            <h5 class=\"card-title\">");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${book.bookname}", java.lang.String.class, (PageContext)_jspx_page_context, null));

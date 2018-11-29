@@ -42,7 +42,7 @@ import javax.transaction.UserTransaction;
  *
  * @author GIFS
  */
-public class ShippingServlet extends HttpServlet {
+public class CheckoutServlet extends HttpServlet {
 
     @Resource
     UserTransaction utx;
@@ -98,11 +98,11 @@ public class ShippingServlet extends HttpServlet {
                         try {
                             orderCtrl.create(orders);
                         } catch (PreexistingEntityException ex) {
-                            Logger.getLogger(ShippingServlet.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(CheckoutServlet.class.getName()).log(Level.SEVERE, null, ex);
                         } catch (RollbackFailureException ex) {
-                            Logger.getLogger(ShippingServlet.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(CheckoutServlet.class.getName()).log(Level.SEVERE, null, ex);
                         } catch (Exception ex) {
-                            Logger.getLogger(ShippingServlet.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(CheckoutServlet.class.getName()).log(Level.SEVERE, null, ex);
                         }
 
                         OrderdetailJpaController orderDetailCtrl = new OrderdetailJpaController(utx, emf);
@@ -125,9 +125,9 @@ public class ShippingServlet extends HttpServlet {
                             try {
                                 orderDetailCtrl.create(orDtail);
                             } catch (RollbackFailureException ex) {
-                                Logger.getLogger(ShippingServlet.class.getName()).log(Level.SEVERE, null, ex);
+                                Logger.getLogger(CheckoutServlet.class.getName()).log(Level.SEVERE, null, ex);
                             } catch (Exception ex) {
-                                Logger.getLogger(ShippingServlet.class.getName()).log(Level.SEVERE, null, ex);
+                                Logger.getLogger(CheckoutServlet.class.getName()).log(Level.SEVERE, null, ex);
                             }
                         }
 
@@ -150,11 +150,11 @@ public class ShippingServlet extends HttpServlet {
                         try {
                             shipCtrl.create(shipping);
                         } catch (PreexistingEntityException ex) {
-                            Logger.getLogger(ShippingServlet.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(CheckoutServlet.class.getName()).log(Level.SEVERE, null, ex);
                         } catch (RollbackFailureException ex) {
-                            Logger.getLogger(ShippingServlet.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(CheckoutServlet.class.getName()).log(Level.SEVERE, null, ex);
                         } catch (Exception ex) {
-                            Logger.getLogger(ShippingServlet.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(CheckoutServlet.class.getName()).log(Level.SEVERE, null, ex);
                         }
 
                         PaymentJpaController paymentCtrl = new PaymentJpaController(utx, emf);
@@ -169,11 +169,11 @@ public class ShippingServlet extends HttpServlet {
                         try {
                             paymentCtrl.create(payment);
                         } catch (PreexistingEntityException ex) {
-                            Logger.getLogger(ShippingServlet.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(CheckoutServlet.class.getName()).log(Level.SEVERE, null, ex);
                         } catch (RollbackFailureException ex) {
-                            Logger.getLogger(ShippingServlet.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(CheckoutServlet.class.getName()).log(Level.SEVERE, null, ex);
                         } catch (Exception ex) {
-                            Logger.getLogger(ShippingServlet.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(CheckoutServlet.class.getName()).log(Level.SEVERE, null, ex);
                         }
 
                         shipping.setPayment(payment);
@@ -189,9 +189,9 @@ public class ShippingServlet extends HttpServlet {
                             orderCtrl.edit(orders);
                             shipCtrl.edit(shipping);
                         } catch (RollbackFailureException ex) {
-                            Logger.getLogger(ShippingServlet.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(CheckoutServlet.class.getName()).log(Level.SEVERE, null, ex);
                         } catch (Exception ex) {
-                            Logger.getLogger(ShippingServlet.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(CheckoutServlet.class.getName()).log(Level.SEVERE, null, ex);
                         }
         
                         response.sendRedirect("History");

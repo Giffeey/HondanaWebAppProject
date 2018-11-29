@@ -46,17 +46,22 @@ public class GenreOfBookServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        
+        String genre = request.getParameter("genre");
+        
         BookJpaController bookCtrl = new BookJpaController(utx, emf);
         List<Book> book = bookCtrl.findBookEntities();
         List<Book> bookByGenre = new ArrayList<>();
         for (Book books : book) {
-            if (books.getGenre().equals(request.getParameter("genre"))) {
+            if (books.getGenre().equalsIgnoreCase(genre)) {
                 bookByGenre.add(books);
             }
         }
 
         request.setAttribute("books", bookByGenre);
-        getServletContext().getRequestDispatcher("/CategoryOfBook.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/BookList.jsp").forward(request, response);
 
     }
 

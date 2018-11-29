@@ -11,10 +11,20 @@ public final class HistoryDetail_jsp extends org.apache.jasper.runtime.HttpJspBa
 
   private static java.util.List<String> _jspx_dependants;
 
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
+
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
     return _jspx_dependants;
+  }
+
+  public void _jspInit() {
+    _jspx_tagPool_c_forEach_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+  }
+
+  public void _jspDestroy() {
+    _jspx_tagPool_c_forEach_var_items.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -44,6 +54,7 @@ public final class HistoryDetail_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
+      out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html>\r\n");
       out.write("    <head>\r\n");
@@ -55,17 +66,17 @@ public final class HistoryDetail_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("            <style>\r\n");
       out.write("                .header-blue {\r\n");
       out.write("                    font-size: 25px;\r\n");
-      out.write("                    color: #4D4845;\r\n");
+      out.write("                    color: #003a70;\r\n");
       out.write("                }\r\n");
-      out.write("                \r\n");
+      out.write("\r\n");
       out.write("                .row {\r\n");
       out.write("                    margin-right: -10px;\r\n");
       out.write("                    margin-left: -10px;\r\n");
       out.write("                }\r\n");
-      out.write("/*                .row .col-md-6 .col-sm-12{\r\n");
-      out.write("                    margin-left:50%;\r\n");
-      out.write("                    margin-top: 25%;\r\n");
-      out.write("                }*/\r\n");
+      out.write("                /*                .row .col-md-6 .col-sm-12{\r\n");
+      out.write("                                    margin-left:50%;\r\n");
+      out.write("                                    margin-top: 25%;\r\n");
+      out.write("                                }*/\r\n");
       out.write("            </style>\r\n");
       out.write("        </head>\r\n");
       out.write("        <body>\r\n");
@@ -128,27 +139,10 @@ public final class HistoryDetail_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("\r\n");
       out.write("                            <div class=\"row flex item-row \">\r\n");
       out.write("                                <div class=\"col-md-10 col-sm-8\">\r\n");
-      out.write("                                    <div class=\"cart-item\">\r\n");
-      out.write("                                        <div class=\"cart-item-cover\">\r\n");
-      out.write("                                            <input type=\"image\" value=\"submit\" name=\"imgbook\" src=\"img/book/");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${historyDetail.book.isbn}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write(".jpg\" alt=\"");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${historyDetail.book.isbn}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\" style=\"width: 100px; height: 190px;\">\r\n");
-      out.write("                                        </div>\r\n");
-      out.write("                                        <div class=\"cart-item-detail\">\r\n");
-      out.write("                                            <div class=\"cart-item-detail-title wordwrap font-title\">\r\n");
-      out.write("                                                ");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${historyDetail.book.bookname}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("                                    ");
+      if (_jspx_meth_c_forEach_0(_jspx_page_context))
+        return;
       out.write("\r\n");
-      out.write("                                            </div>\r\n");
-      out.write("                                            <div class=\"cart-item-detail-author wordwrap font-size-17 font-light\">\r\n");
-      out.write("                                                ");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${historyDetail.book.isbn}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\r\n");
-      out.write("                                            </div>\r\n");
-      out.write("                                        </div>\r\n");
-      out.write("                                    </div>\r\n");
       out.write("                                </div>\r\n");
       out.write("                                <div class=\"col-md-2 col-sm-4  item-row-detail\">\r\n");
       out.write("                                    <div class=\"table-cell-middle widthfull text-center\">\r\n");
@@ -198,7 +192,7 @@ public final class HistoryDetail_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                </div>\r\n");
       out.write("\r\n");
       out.write("            </div>\r\n");
-      out.write("                    <br>\r\n");
+      out.write("            <br>\r\n");
       out.write("        </div>\r\n");
       out.write("    </body>\r\n");
       out.write("    ");
@@ -216,5 +210,62 @@ public final class HistoryDetail_jsp extends org.apache.jasper.runtime.HttpJspBa
     } finally {
       _jspxFactory.releasePageContext(_jspx_page_context);
     }
+  }
+
+  private boolean _jspx_meth_c_forEach_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_0.setParent(null);
+    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${historyDetail}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_c_forEach_0.setVar("order");
+    int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
+      if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("                                        <div class=\"cart-item\">\r\n");
+          out.write("                                            <div class=\"cart-item-cover\">\r\n");
+          out.write("                                                <input type=\"image\" value=\"submit\" name=\"imgbook\" src=\"img/book/");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${historyDetail.book.isbn}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write(".jpg\" alt=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${historyDetail.book.isbn}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" style=\"width: 100px; height: 190px;\">\r\n");
+          out.write("                                            </div>\r\n");
+          out.write("                                            <div class=\"cart-item-detail\">\r\n");
+          out.write("                                                <div class=\"cart-item-detail-title wordwrap font-title\">\r\n");
+          out.write("                                                    ");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${order.book.bookname}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\r\n");
+          out.write("                                                </div>\r\n");
+          out.write("                                                <div class=\"cart-item-detail-author wordwrap font-size-17 font-light\">\r\n");
+          out.write("                                                    ");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${order.book.isbn}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\r\n");
+          out.write("                                                </div>\r\n");
+          out.write("                                            </div>\r\n");
+          out.write("                                        </div>\r\n");
+          out.write("                                    ");
+          int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_0[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_0.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_0.doFinally();
+      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
+    }
+    return false;
   }
 }

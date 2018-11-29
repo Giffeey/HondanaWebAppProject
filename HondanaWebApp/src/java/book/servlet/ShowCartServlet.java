@@ -8,6 +8,7 @@ package book.servlet;
 import book.controller.BookJpaController;
 import book.model.Book;
 import book.model.Cart;
+import book.model.Customer;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -46,46 +47,58 @@ public class ShowCartServlet extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession(false);
         if (session != null) {
-            Cart cart = (Cart) session.getAttribute("cart");
-            if (cart != null) {
-                String increase = request.getParameter("increase");
-                String decrease = request.getParameter("decrease");
-                String remove = request.getParameter("remove");
-                BookJpaController bookCtrl = new BookJpaController(utx, emf);
-                if (increase != null) {
+            Customer cust = (Customer) session.getAttribute("customer");
+            if (cust != null) {
+                Cart cart = (Cart) session.getAttribute("cart");
 
-                    Book book = bookCtrl.findBook(increase);
-                    if (book != null) {
-                        cart.increaseBook(book);
+                if (cart != null) {
+                    String increase = request.getParameter("increase");
+                    String decrease = request.getParameter("decrease");
+                    String remove = request.getParameter("remove");
+                    BookJpaController bookCtrl = new BookJpaController(utx, emf);
+                    if (increase != null) {
+
+                        Book book = bookCtrl.findBook(increase);
+                        if (book != null) {
+                            cart.increaseBook(book);
+                        }
+
                     }
+                    if (decrease != null) {
 
-                }
-                if (decrease != null) {
+                        Book book = bookCtrl.findBook(decrease);
+                        if (book != null) {
+                            cart.decreaseBook(book);
+                        }
 
-                    Book book = bookCtrl.findBook(decrease);
-                    if (book != null) {
-                        cart.decreaseBook(book);
                     }
+                    if (remove != null) {
 
-                }
-                if (remove != null) {
+                        Book book = bookCtrl.findBook(remove);
+                        if (book != null) {
+                            cart.remove(book);
+                        }
+                        
+                        if (cart.getTotalQuantity() == 0){
+                            response.sendRedirect("Home");
+                            return;
+                        }
 
-                    Book book = bookCtrl.findBook(remove);
-                    if (book != null) {
-                        cart.remove(book);
                     }
-
+                    session.setAttribute("cart", cart);
+                    getServletContext().getRequestDispatcher("/ShowItemInCart.jsp").forward(request, response);
+                    return;
                 }
-                session.setAttribute("cart", cart);
-                getServletContext().getRequestDispatcher("/ShowItemInCart.jsp").forward(request, response);
+              
+                request.setAttribute("msg", "ไม่มีสินค้าในตะกร้า");
+                response.sendRedirect("Home");
                 return;
             }
-            request.setAttribute("msg", "ไม่มีสินค้าในตะกร้า");
-            response.sendRedirect("Home");
-
         }
+
         request.setAttribute("msg", "เข้าสู่ระบบก่อนทำการเพิ่มสินค้าลงตะกร้า");
-        getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
+        response.sendRedirect("Login");
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

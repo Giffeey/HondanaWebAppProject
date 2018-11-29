@@ -24,7 +24,11 @@
                     <h2>Checkout</h2>
 
                 </div>
+<<<<<<< HEAD:HondanaWebApp/web/Shipping.jsp
                 <form class="needs-validation" novalidate action="Shipping" method="post">
+=======
+                <form class="needs-validation" novalidate action="Checkout" method="post"> 
+>>>>>>> 6868a33d04a875fc764646c341d45b1e938077d9:HondanaWebApp/web/Checkout.jsp
                     <div class="row">
                         <div class="col-md-4 order-md-2 mb-4">
                             <h4 class="d-flex justify-content-between align-items-center mb-3">

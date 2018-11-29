@@ -90,7 +90,7 @@
 
                     <div class="size15 trans-0-4">
                         <!-- Button -->
-                        <form action="ShippingPage" method="post">
+                        <form action="CheckoutPage" method="post">
                             <button type="submit" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
                                 Proceed to Checkout
                             </button>

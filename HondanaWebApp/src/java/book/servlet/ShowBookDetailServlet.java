@@ -51,8 +51,9 @@ public class ShowBookDetailServlet extends HttpServlet {
         if (book != null) {
             session.setAttribute("bookItem", book);
             getServletContext().getRequestDispatcher("/Book.jsp").forward(request, response);
-            
+            return;
         }
+        response.sendRedirect("Home");
     }
 
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

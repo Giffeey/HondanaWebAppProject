@@ -17,12 +17,12 @@
         <body>          
             <div class="slide-contaner" style="background-image: url(img/test2.jpg)">
                 <a href="AllBook">
-                <button class="button button1">SHOP NOW</button>
+                    <button class="button button1">SHOP NOW</button>
                 </a>
             </div>
             <div class="slide-contaner" style="background-image: url(img/test3.jpg)">
                 <a href="AllBook">
-                <button class="button button2">SHOP NOW</button>
+                    <button class="button button2">SHOP NOW</button>
                 </a>
             </div>
             <div class="slide-contaner" style="background-image: url(img/test.jpg)">
@@ -60,12 +60,18 @@
 
             <div class="card-deck">
             <c:forEach items="${showBook}" var="book">
-                <div class="col-3 container">
+                <div class="col-3">
                     <div class="card">
-                        <form action="ShowBookDetail" method="post">
-                            <input type="hidden" name="isbn" value="${book.isbn}">
-                            <input type="image" value="submit" name="imgbook" src="img/book/${book.isbn}.jpg" alt="${book.isbn}" style="width: 200px; height: 290px;">
-                        </form>
+
+ 
+                        <div class="card-img-top">
+                            <center><form action="ShowBookDetail" method="post">
+                                    <input type="hidden" name="isbn" value="${book.isbn}">
+                                    <input type="image" value="submit" name="imgbook" src="img/book/${book.isbn}.jpg" alt="${book.isbn}" style="width: 200px; height: 290px;">
+
+                                </form></center>
+                        </div>
+
                         <div class="card-body">
                             <h5 class="card-title">${book.bookname}</h5>
                             <p class="card-text">ผู้แต่ง: ${book.author}</p>
@@ -81,8 +87,8 @@
                 </div>
             </c:forEach>
         </div>
-                
-<!--        </section>-->
+
+        <!--        </section>-->
 
     </body>
     <jsp:include page="Footer.jsp"></jsp:include>

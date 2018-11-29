@@ -36,7 +36,7 @@ import javax.transaction.UserTransaction;
  *
  * @author GIFS
  */
-public class ShippingPageServlet extends HttpServlet {
+public class CheckoutPageServlet extends HttpServlet {
 
     @Resource
     UserTransaction utx;
@@ -62,20 +62,14 @@ public class ShippingPageServlet extends HttpServlet {
             if (customer != null) {
                 Cart cart = (Cart) session.getAttribute("cart");
                 if(cart != null){
-                    
-                    if(cart.getTotalPrice().compareTo(BigDecimal.valueOf(500)) >=0){
- 
-                        session.setAttribute("amount", cart.getTotalPrice());
-                    }else{
-                        String shipMethod = (String) request.getAttribute("shipMethod");
-                        session.setAttribute("amount", (cart.getTotalPrice().add(BigDecimal.valueOf(50))));
-                    }
-                    
+   
+                    session.setAttribute("amount", cart.getTotalPrice());
+     
                     List<LineItem> line = cart.getLineItems();
                     
                     session.setAttribute("LineItem", line);
                     
-                    getServletContext().getRequestDispatcher("/Shipping.jsp").forward(request, response);
+                    getServletContext().getRequestDispatcher("/Checkout.jsp").forward(request, response);
                     return;
                 }
             }
