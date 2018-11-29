@@ -4,13 +4,47 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : Nov 15, 2018, 4:20:46 PM
+    Created on : Nov 30, 2018, 2:16:06 AM
     Author     : Admin
-*/    
+*/
+
 body{
     font-family:'Athiti', sans-serif;
 }
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #f2f2f2;
+}
 
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 25px;
+}
+.button1 {
+    background-color: #FC9C72;
+    color: white; 
+}
+
+.button1:hover {
+    background-color: #EF8A62;
+    color: white;
+}
 .footer{
     background-color: #4D4845;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
@@ -20,8 +54,12 @@ body{
     font: normal 16px sans-serif;
     padding: 45px 50px;
     position: absolute;
+    width:100%;
+    height:150px;
     margin-top: auto;
-   
+    
+
+
 }
 
 .footer .footer-left p.coppyright{
@@ -98,6 +136,3 @@ body{
     text-align: center;
     max-width: 30px;
 }
-
-
-

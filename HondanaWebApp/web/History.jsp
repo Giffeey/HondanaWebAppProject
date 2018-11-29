@@ -17,54 +17,15 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> 
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Athiti" rel="stylesheet">
+        <link href="css/historycss.css" rel="stylesheet" type="text/css"/>
         <title>JSP Page</title>
-        <style>
-            body{
-                font-family:'Athiti', sans-serif;
-            }
-            table {
-                border-collapse: collapse;
-                width: 100%;
-                background-color: #f2f2f2;
-            }
-
-            th, td {
-                text-align: left;
-                padding: 8px;
-            }
-            .button {
-                background-color: #4CAF50; /* Green */
-                border: none;
-                color: white;
-                padding: 16px 32px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 16px;
-                margin: 4px 2px;
-                -webkit-transition-duration: 0.4s; /* Safari */
-                transition-duration: 0.4s;
-                cursor: pointer;
-                border-radius: 25px;
-            }
-            .button1 {
-                background-color: #FC9C72;
-                color: white; 
-            }
-
-            .button1:hover {
-                background-color: #EF8A62;
-                color: white;
-            }
-
-            /*table{background-color: #f2f2f2;}*/
-        </style>
+        
         <jsp:include page="Head.jsp"></jsp:include>
         </head>
         <body>
 
             <br>
-            <div class="container"><h1 style="font-family: 'Quark-Bold'">ประวัติการสั่งซื้อ</h1></div>
+            <div class="container"><h1 style="font-family:'Athiti', sans-serif; margin-top: 5%">ประวัติการสั่งซื้อ</h1></div>
             <div class="container">
                 <table class="table table-bordered">
                     <thead>
@@ -94,6 +55,43 @@
                     </c:forEach>
                 </tbody>
             </table>
+        </div>
+            
+            <!--Footer-->
+            
+            <div class="footer">
+
+            <div class="footer-right m-l-auto">
+
+                <div class="facebook">
+                    <a href="#">
+                        <img src="img/facebook.png">
+                    </a>
+                </div>
+                <div class="twitter">
+                    <a href="#">
+                        <img src="img/twitter.png">
+                    </a>
+                </div>
+                <div class="instagram">
+                    <a href="#">
+                        <img src="img/instagram.png">
+                    </a>
+                </div>
+
+
+            </div>
+
+            <div class="footer-left">
+
+                <p class="footer-links">
+                    Address: 04/021 <br>
+                    Tel: 025-970-493 <br>
+                    E-mail: jompol.jintaphat@hotmak.com
+                </p>
+
+                <p class="coppyright">Copyright &copy; HONDANA 2018</p>
+            </div>
         </div>
     </body>
     <jsp:include page="Footer.jsp"></jsp:include>

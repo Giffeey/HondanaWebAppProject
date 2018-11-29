@@ -103,7 +103,7 @@
             </div>
         </section> 
         <div><br></div>
-        
+          
     </body>
-    <jsp:include page="Footer.jsp"></jsp:include>   
+    <jsp:include page="Footer.jsp"></jsp:include>
 </html>
