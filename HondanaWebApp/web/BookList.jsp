@@ -14,22 +14,31 @@
         <title>HONDANA | BOOK</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+        <link href="https://fonts.googleapis.com/css?family=Athiti" rel="stylesheet">
         <style>
-            .btn.btn-primary{
-                background: #FC9C72 none repeat scroll 0 0;
-                border-color: #FC9C72;
-                color: #ffffff;
-                font-size: 14px;
-                width: 100%;
-                height: 50px;
-                line-height: 50px;
-                padding: 0;
-                border-radius: 25px;
+            body{
+                font-family:'Athiti', sans-serif;
             }
-            .btn-primary {
-                color: #fff;
-                background-color: #FE9061;
-                border-color: #FE9061;
+            .button6 {
+                border: none;
+                color: white;
+                padding: 16px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                -webkit-transition-duration: 0.4s; /* Safari */
+                transition-duration: 0.4s;
+                cursor: pointer;
+                border-radius: 25px;
+                background-color: #FC9C72;
+                color: white; 
+            }
+
+            .button6:hover {
+                background-color: #EF8A62;
+                color: white;
             }
 
             .m-text14 {
@@ -181,7 +190,7 @@
             .dropdown2:hover .dropdown2-content {
                 display: block;
             }
-            
+
         </style>
 
     </head>
@@ -333,128 +342,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!--                        <h4 class="m-text14 p-b-7">
-                                                    GENRE
-                                                </h4>-->
-
-                        <!--                    <ul class="p-b-54">
-                        
-                                                <li class="p-t-4">
-                                                    <form action="GenreOfBook" method="post">
-                                                        <input type="hidden" name="genre" value="แฟนตาซี">
-                                                        <button type="submit" class="s-text13">
-                                                            แฟนตาซี
-                                                        </button>
-                                                    </form>
-                                                </li>
-                        
-                                                <li class="p-t-4">
-                                                    <form action="GenreOfBook" method="post">
-                                                        <input type="hidden" name="genre" value="นิยายแปลแฟนตาซี">
-                                                        <button type="submit" class="s-text13">
-                                                            นิยายแปลแฟนตาซี
-                                                        </button>
-                                                    </form>
-                                                </li>
-                        
-                                                <li class="p-t-4">
-                                                    <form action="GenreOfBook" method="post">
-                                                        <input type="hidden" name="genre" value="บ้านและสวน">
-                                                        <button type="submit" class="s-text13">
-                                                            บ้านและสวน
-                                                        </button>
-                                                    </form>
-                                                </li>
-                        
-                                                <li class="p-t-4">
-                                                    <form action="GenreOfBook" method="post">
-                                                        <input type="hidden" name="genre" value="วรรณกรรมเยาวชน">
-                                                        <button type="submit" class="s-text13">
-                                                            วรรณกรรมเยาวชน
-                                                        </button>
-                                                    </form>
-                                                </li>
-                        
-                                                <li class="p-t-4">
-                                                    <form action="GenreOfBook" method="post">
-                                                        <input type="hidden" name="genre" value="รักโรแมนติก">
-                                                        <button type="submit" class="s-text13">
-                                                            รักโรแมนติก
-                                                        </button>
-                                                    </form>
-                                                </li>
-                        
-                                                <li class="p-t-4">
-                                                    <form action="GenreOfBook" method="post">
-                                                        <input type="hidden" name="genre" value="นิยายโรแมนติก">
-                                                        <button type="submit" class="s-text13">
-                                                            นิยายโรแมนติก
-                                                        </button>
-                                                    </form>
-                                                </li>
-                                                <li class="p-t-4">
-                                                    <form action="GenreOfBook" method="post">
-                                                        <input type="hidden" name="genre" value="นิยายแปลโรแมนติก">
-                                                        <button type="submit" class="s-text13">
-                                                            นิยายแปลโรแมนติก
-                                                        </button>
-                                                    </form>
-                                                </li>
-                        
-                                                <li class="p-t-4">
-                                                    <form action="GenreOfBook" method="post">
-                                                        <input type="hidden" name="genre" value="นิยายแปลจีน">
-                                                        <button type="submit" class="s-text13">
-                                                            นิยายแปลจีน
-                                                        </button>
-                                                    </form>
-                                                </li>
-                        
-                                                <li class="p-t-4">
-                                                    <form action="GenreOfBook" method="post">
-                                                        <input type="hidden" name="genre" value="จิตวิทยา">
-                                                        <button type="submit" class="s-text13">
-                                                            จิตวิทยา
-                                                        </button>
-                                                    </form>
-                                                </li>
-                        
-                                                <li class="p-t-4">
-                                                    <form action="GenreOfBook" method="post">
-                                                        <input type="hidden" name="genre" value="สืบสวนสอบสวน">
-                                                        <button type="submit" class="s-text13">
-                                                            สืบสวนสอบสวน
-                                                        </button>
-                                                    </form>
-                                                </li>
-                        
-                                                <li class="p-t-4">
-                                                    <form action="GenreOfBook" method="post">
-                                                        <input type="hidden" name="genre" value="นิยายแปลสืบสวนสอบสวน">
-                                                        <button type="submit" class="s-text13">
-                                                            นิยายแปลสืบสวนสอบสวน
-                                                        </button>
-                                                    </form>
-                                                </li>
-                        
-                                                <li class="p-t-4">
-                                                    <form action="GenreOfBook" method="post">
-                                                        <input type="hidden" name="genre" value="นิยายวาย">
-                                                        <button type="submit" class="s-text13">
-                                                            นิยายวาย
-                                                        </button>
-                                                    </form>
-                                                </li>
-                        
-                                                <li class="p-t-4">
-                                                    <form action="GenreOfBook" method="post">
-                                                        <input type="hidden" name="genre" value="วรรณกรรมไทย">
-                                                        <button type="submit" class="s-text13">
-                                                            วรรณกรรมไทย
-                                                        </button>
-                                                    </form>
-                                                </li>
-                                            </ul>-->
                     </div>
 
                 </div>
@@ -474,12 +361,12 @@
                             <h5 class="card-title">${book.bookname}</h5>
                             <p class="card-text">ผู้แต่ง: ${book.author}</p>
                             <p class="card-text">สำนักพิมพ์: ${book.publisher}</p>
-                            <p class="card-text">ราคา: ${book.price} บาท</p>
+                            <p class="card-text">ราคา: ${book.price} ฿</p>
                         </div>
                         <div class="card-footer">
                             <form action="AddItemToCart" method="post">
                                 <input type="hidden" name="isbn" value="${book.isbn}">
-                                <button class="btn btn-primary"type="submit" >Add to Cart</button>
+                                <button class="button button6" style="margin-left: 50px; ">ADD TO CART</button>
                             </form>
                         </div>
                     </div>

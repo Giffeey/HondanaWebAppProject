@@ -7,7 +7,9 @@ and open the template in the editor.
     Created on : Nov 20, 2018, 10:59:40 PM
     Author     : Admin
 */
-
+body{
+    font-family:'Athiti', sans-serif;;
+}
 .slide-contaner {
     height: 720px;
     background-size: cover;
@@ -15,7 +17,6 @@ and open the template in the editor.
     background-position: center center;
 }
 .button {
-    background-color: #4CAF50; /* Green */
     border: none;
     color: white;
     padding: 16px 32px;
@@ -48,6 +49,16 @@ and open the template in the editor.
 }
 
 .button2:hover {
+    background-color: #EF8A62;
+    color: white;
+}
+.button3 {
+    background-color: #FC9C72;
+    color: white; 
+    
+}
+
+.button3:hover {
     background-color: #EF8A62;
     color: white;
 }

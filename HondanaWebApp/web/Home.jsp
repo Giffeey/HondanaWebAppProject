@@ -11,8 +11,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>HONDANA | HOME</title>
+        <link href="css/csshome.css" rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com/css?family=Athiti" rel="stylesheet">
         <jsp:include page="Head.jsp"></jsp:include>
-            <link href="css/csshome.css" rel="stylesheet" type="text/css"/>
         </head>
         <body>          
             <div class="slide-contaner" style="background-image: url(img/test2.jpg)">
@@ -80,7 +81,7 @@
                         <div class="card-footer">
                             <form action="AddItemToCart" method="post">
                                 <input type="hidden" name="isbn" value="${book.isbn}">
-                                <button type="submit" class="btn btn-primary">Add to Cart</button>
+                                <button type="submit" class="button button3" style="margin-left: 50px;">Add to Cart</button>
                             </form>
                         </div>
                     </div>

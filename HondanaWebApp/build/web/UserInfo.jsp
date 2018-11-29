@@ -14,10 +14,13 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> 
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Athiti" rel="stylesheet">
         <style>
             /*@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
             @import url(https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.3/css/mdb.min.css);*/
-
+            body{
+                font-family:'Athiti', sans-serif;
+            }
             .hm-gradient {
                 background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
             }
@@ -71,17 +74,20 @@
 
             .button1:hover {
                 background-color: #FC9C72;
-                color: #4D4845;
+                color: white;
                 border: 1px solid #FC9C72;
+            }
+            .card{  
+                box-shadow: 5px 10px #888888;
             }
         </style> 
         <jsp:include page="Head.jsp"></jsp:include>
         </head>
         <body>
-            <div class="slide-contaner" style="background-image: url(img/book.png);">
+            <div class="slide-contaner" style="background-color: #efeeee;">
 
 
-                <div class="container " style="width: 40rem" name="block" >
+                <div class="container " style="width: 40rem;" name="block" >
                     <div class="row">
                         <!-- Grid column -->
                         <div class="col-12 p-5" name="sign-in" >
@@ -125,7 +131,7 @@
                                     <form action="History" method="post"> 
                                         <div class="text-center" name="si">
 
-                                             <button type="submit" class="button button1">ประวัติการซื้อ</button>
+                                            <button type="submit" class="button button1">ประวัติการซื้อ</button>
                                     </form>
                                 </div>
                             </div>
@@ -133,7 +139,8 @@
                     </div>
                 </div>
             </div>
-        </div>     
+        </div>
+    </div>
 
-    </body> <jsp:include page="Footer.jsp"></jsp:include>
+</body> <jsp:include page="Footer.jsp"></jsp:include>
 </html>

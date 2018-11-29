@@ -10,9 +10,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/cssfooter.css" rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com/css?family=Athiti" rel="stylesheet">
     </head>
     <body>
-        <footer class="footer-distributed mt-0 p-4">
+        <div class="footer">
 
             <div class="footer-right m-l-auto">
 
@@ -39,13 +40,13 @@
 
                 <p class="footer-links">
                     Address: 04/021 <br>
-                    Tel: 015-939-7195 <br>
+                    Tel: 025-970-493 <br>
                     E-mail: jompol.jintaphat@hotmak.com
                 </p>
 
                 <p class="coppyright">Copyright &copy; HONDANA 2018</p>
             </div>
+        </div>
 
-        </footer>
     </body>
 </html>
