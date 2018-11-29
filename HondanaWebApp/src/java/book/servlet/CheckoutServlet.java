@@ -194,15 +194,15 @@ public class CheckoutServlet extends HttpServlet {
                             Logger.getLogger(CheckoutServlet.class.getName()).log(Level.SEVERE, null, ex);
                         }
                         session.setAttribute("cart", null);
-                        request.setAttribute("orderNo", orders.getOrderno());
-                        response.sendRedirect("Home");
+                        
+                        response.sendRedirect("History");
                         return;
                     }
                 }
             }
         }
         response.sendRedirect("Home");
-        //getServletContext().getRequestDispatcher("/index.html").forward(request, response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

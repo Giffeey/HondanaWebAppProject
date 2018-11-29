@@ -55,16 +55,15 @@ public class HistoryServlet extends HttpServlet {
                 for(Orders order : orderList){
                     if(order.getCustomerid().getCustomerid().equals(customer.getCustomerid())){
                         orders.add(order);     
-                        System.out.println(order);
                     }
                 }
-                
+              
                 session.setAttribute("orderHistory", orders);
                 getServletContext().getRequestDispatcher("/History.jsp").forward(request, response);
             }
         }
         response.sendRedirect("Home");
-        //getServletContext().getRequestDispatcher("/index.html").forward(request, response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
