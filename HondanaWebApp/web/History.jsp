@@ -27,6 +27,31 @@
                 text-align: left;
                 padding: 8px;
             }
+            .button {
+                    background-color: #4CAF50; /* Green */
+                    border: none;
+                    color: white;
+                    padding: 16px 32px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                    margin: 4px 2px;
+                    -webkit-transition-duration: 0.4s; /* Safari */
+                    transition-duration: 0.4s;
+                    cursor: pointer;
+                    border-radius: 25px;
+                }
+                .button1 {
+                    background-color: #FC9C72;
+                    color: white; 
+                }
+
+                .button1:hover {
+                    background-color: #EF8A62;
+                    color: white;
+                }
+            
             /*table{background-color: #f2f2f2;}*/
         </style>
         <jsp:include page="Head.jsp"></jsp:include>
@@ -55,7 +80,11 @@
                         <td>${order.totalbook}</td>
                         <td>${order.paymentno.amount}</td>
                         <td>${order.status}</td>
-                        <td><form action="HistoryDetail" method="post"><input type="hidden" name="orderNo" value="${order.orderno}"><button type="submit" >Order Detail</button></form></td>
+                        <td><form action="HistoryDetail" method="post">
+                                <input type="hidden" name="orderNo" value="${order.orderno}">
+                                <button class="button button1" type="submit" >Order Detail</button>
+                            </form>
+                        </td>
                     </tr>
                 </c:forEach>
             </tbody>

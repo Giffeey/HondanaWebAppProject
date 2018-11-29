@@ -120,7 +120,7 @@ public final class ShowItemInCart_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("\r\n");
       out.write("                    <div class=\"size15 trans-0-4\">\r\n");
       out.write("                        <!-- Button -->\r\n");
-      out.write("                        <form action=\"ShippingPage\" method=\"post\">\r\n");
+      out.write("                        <form action=\"CheckoutPage\" method=\"post\">\r\n");
       out.write("                            <button type=\"submit\" class=\"flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4\">\r\n");
       out.write("                                Proceed to Checkout\r\n");
       out.write("                            </button>\r\n");

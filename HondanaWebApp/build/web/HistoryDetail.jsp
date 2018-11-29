@@ -22,10 +22,10 @@
                     margin-right: -10px;
                     margin-left: -10px;
                 }
-                /*                .row .col-md-6 .col-sm-12{
-                                    margin-left:50%;
-                                    margin-top: 25%;
-                                }*/
+                .row .col-md-6 .col-sm-12{
+                    margin-left:50%;
+                    margin-top: 25%;
+                }
             </style>
         </head>
         <body>
@@ -49,7 +49,11 @@
                         <div class="row">
                             <div class="col-md-12 col-xs-12">
                                 <div class="header-blue">สถานะ : 
+<<<<<<< HEAD
                                     <span>${shippingDetail.shipstatus}</span>
+=======
+                                    <span>${historyDetail.status}</span>
+>>>>>>> a5e3a214fc773106911f4898264673bf4701063b
                                 </div>
                             </div>
                             <div class="col-md-12 col-xs-12">
@@ -59,7 +63,11 @@
                             </div>
                             <div class="col-md-12 col-xs-12">
                                 <div class="">วันที่จัดส่ง : 
+<<<<<<< HEAD
                                     <span>${shippingDetail.shipdate}</span>
+=======
+                                    <span>${historyDetail.orderdate}</span>
+>>>>>>> a5e3a214fc773106911f4898264673bf4701063b
                                 </div>
                             </div>
                         </div>
